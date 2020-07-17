@@ -1,0 +1,17 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+nav ul{
+    width: 50%;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+#btn-loginOut{
+    padding: 7px 15px;
+    margin:10px 30px;
+    border:2px solid #111111;
+    border-radius: 10px;
+}

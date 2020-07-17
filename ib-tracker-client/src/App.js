@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Route} from 'react-router-dom';
+import LoginForm from './components/loginForm/loginFrom';
+import HomePage from './components/homePage/homePage';
+import Logs from './components/logs/logs';
+import Inventory from './components/inventory/inventory';
+import Product from './components/products/products';
 import './App.css';
+class App extends React.Component{
+  constructor (){
+    super();
+    this.state={
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    }
+  }
+
+  render() {
+   return (
+     <div className="App">
+     <Route path="/login" component={(props)=><LoginForm {...props}/>}/>
+     <Route path="/home" component={(props)=><HomePage {...props}/>}/>
+     <Route path="/logs" component={(props)=><Logs {...props}/>}/>
+     <Route path="/inventory" component={(props)=><Inventory {...props}/>}/>
+     <Route path="/product" component={(props)=><Product {...props}/>}/>      
+     </div>
+   );
+}
 }
 
 export default App;
