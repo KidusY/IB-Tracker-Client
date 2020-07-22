@@ -1,0 +1,45 @@
+.inventory{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+}
+.inventory #userId{
+    border: none;
+    padding: 0 50px;
+}
+.inventory #comments{
+    display: flex;
+    flex-wrap: wrap;   
+    padding: 10px 70px;
+    text-align: left;
+    max-width: 50px;
+    
+}
+
+#sold{
+    height: 30px;
+    margin-top: 30px;
+    padding:0 20px;
+    background-color: #43a047;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+#sold:hover{
+    background-color: #1b5e20;
+}
+#remove{
+    height: 30px;
+    margin-top: 30px;
+    padding:0 10px;
+    background-color: #e53935;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+#remove:hover{
+    background-color: #b71c1c;
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import tokenServices from '../../services/tokenServices';
 const loginFrom = (props) => {
+	
 	const onSubmitHandler = (ev) => {
 		const { userName, password } = ev.target;
 		const loginInfo = {
@@ -10,7 +11,10 @@ const loginFrom = (props) => {
 		};
 		axios
 			.post('http://localhost:8000/api/login', loginInfo)
-			.then((res) => {
+			.then((res) => {				
+				tokenServices.saveAuthToken(res.data.authToken);
+				props.setLogin(true);	
+				props.setUser (loginInfo.user_name);
 				if (res.status === 201) {                   
                     props.history.push('/home');
 				}

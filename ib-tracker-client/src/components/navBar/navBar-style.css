@@ -9,9 +9,10 @@ nav ul{
     display: flex;
     justify-content: space-evenly;
 }
-#btn-loginOut{
+#btn-logOut{
     padding: 7px 15px;
     margin:10px 30px;
     border:2px solid #111111;
     border-radius: 10px;
+    width: 100px;
 }
