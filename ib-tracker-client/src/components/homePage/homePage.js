@@ -1,14 +1,21 @@
 import React from 'react';
 import NavBar from '../navBar/navBar';
-const homepage = ()=>{
-    return(
-        <div className="homePage">
-        <NavBar/>
-        <h1> Ib Tracker </h1>
-        </div>
-    )
+import Header from '../header/header';
+const homepage = () => {
+	return (
+		<div className="container">
+        <NavBar />
+			<div className="main">
+				
+                <div className="collection">
 
-
-}
+				<div className="homePage">
+					
+				</div>
+                </div>
+			</div>
+		</div>
+	);
+};
 
 export default homepage;

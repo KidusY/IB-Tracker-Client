@@ -39,6 +39,7 @@ this.setState({user:user})
 			user:this.state.user			
 			
 		};
+	
 
 		return (
 			<IbContext.Provider value={value}>

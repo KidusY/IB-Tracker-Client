@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+
 import Ibcontext from '../../context';
 import './single_inventory-style.css';
 class singleInventory extends React.Component {
@@ -16,27 +17,33 @@ class singleInventory extends React.Component {
 				{(context) => (
 					<div>
 						{this.state.inventory ? (
-							<div className="inventory">
-								<h4 id="productId">{inventory.productid} </h4>
-								<h4 id="title">{inventory.title} </h4>
-								<h4 id="location">{inventory.location} </h4>
-								<h4 id="quantity">{inventory.quantity} </h4>
-								<h4 id="comments">{inventory.comments} </h4>
-								<h4 id="userId">{context.users} </h4>
+							<div>
+								<tr className="inventory">
+									<td className="col">{inventory.productid}</td>
+									<td className="col">{inventory.title}</td>
+									<td className="col">{inventory.location}</td>
+									<td className="col">{inventory.quantity}</td>
+									<td className="col">{inventory.comments}</td>
+									<td className="col">{inventory.user_name}</td>
 
-								<button
-									id="sold"
-									onClick={() => this.setState({ showSoldQTY: !this.state.showSoldQTY })}
-								>
-									Sold
-								</button>
-								<button
-									id="remove"
-									onClick={() => this.setState({ showRemoveQTY: !this.state.showRemoveQTY })}
-								>
-									{' '}
-									Remove{' '}
-								</button>
+									<td className="col">	<button
+										id="sold"
+										onClick={() => this.setState({ showSoldQTY: !this.state.showSoldQTY })}
+									>
+										Sold
+									</button>
+									</td>
+									<td className="col">
+
+									<button
+										id="remove"
+										onClick={() => this.setState({ showRemoveQTY: !this.state.showRemoveQTY })}
+									>
+										{' '}
+										Remove{' '}
+									</button>
+									</td>
+								</tr>
 							</div>
 						) : (
 							<div />

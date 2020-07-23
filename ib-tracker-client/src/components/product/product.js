@@ -26,8 +26,8 @@ class product extends React.Component {
 				<h3>{productInfo.title}</h3>
 				<h4>{productInfo.type}</h4>
 				<p>{productInfo.description} </p>
-				<p> {productInfo.price}</p>
-				<button onClick={() => this.handleAddForm()}>Add</button>
+				<p>$ {productInfo.price}</p>
+				<button id="add-Btn" onClick={() => this.handleAddForm()}>Add</button>
 				{this.state.inventoryFrom ? (
 					<AddInventory handleAddForm={this.handleAddForm} addInventory={this.addInventory} productId={productInfo.productid} _title={productInfo.title} />
 				) : (

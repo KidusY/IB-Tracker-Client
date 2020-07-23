@@ -11,10 +11,12 @@ const loginFrom = (props) => {
 		};
 		axios
 			.post('http://localhost:8000/api/login', loginInfo)
-			.then((res) => {				
+			.then((res) => {	
+				console.log(res);			
 				tokenServices.saveAuthToken(res.data.authToken);
+				tokenServices.saveUser(res.data.sub);				
 				props.setLogin(true);	
-				props.setUser (loginInfo.user_name);
+				props.setUser (res.data.sub);
 				if (res.status === 201) {                   
                     props.history.push('/home');
 				}

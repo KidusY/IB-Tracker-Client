@@ -1,12 +1,22 @@
-.product{
-    border: 2px solid #111111;
-    border-radius: 10px;
-    margin: 10px;
-    width: 300px;
-}
-.product p{
-    margin: 0 auto;
-    width: 50%;
+.product {
     text-align: center;
+	border: 2px solid #111111;
+	border-radius: 10px;
+	margin: 10px;
+    width: 300px;
     padding: 5px;
+}
+.product p {
+	margin: 0 auto;
+	width: 50%;
+	text-align: center;
+	padding: 5px;
+}
+
+#add-Btn {
+    background-color: #4caf50;
+    padding: 10px;
+    display: block;
+    margin: 5px auto;
+    border: none;
 }
