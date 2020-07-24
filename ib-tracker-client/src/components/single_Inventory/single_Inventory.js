@@ -18,24 +18,24 @@ class singleInventory extends React.Component {
 				{(context) => (
 					<tbody>
 						{this.state.inventory ? (
-							
-								<tr className="inventory">
-									<td className="col unImportant">{inventory.productid}</td>
-									<td className="col">{inventory.title}</td>
-									<td className="col">{inventory.location}</td>
-									<td className="col">{inventory.quantity}</td>
-									<td className="col unImportant">{inventory.comments}</td>
-									<td className="col unImportant">{inventory.user_name}</td>
+							<tr className="inventory">
+								<td className="col unImportant">{inventory.productid}</td>
+								<td className="col">{inventory.title}</td>
+								<td className="col">{inventory.location}</td>
+								<td className="col">{inventory.quantity}</td>
+								<td className="col unImportant">{inventory.comments}</td>
+								<td className="col unImportant">{inventory.user_name}</td>
 
-									<td className="col">	<button
+								<td className="col">
+									{' '}
+									<button
 										id="sold"
 										onClick={() => this.setState({ showSoldQTY: !this.state.showSoldQTY })}
 									>
 										Sold
 									</button>
-									</td>
-									<td className="col">
-
+								</td>
+								<td className="col">
 									<button
 										id="remove"
 										onClick={() => this.setState({ showRemoveQTY: !this.state.showRemoveQTY })}
@@ -43,9 +43,8 @@ class singleInventory extends React.Component {
 										{' '}
 										Remove{' '}
 									</button>
-									</td>
-								</tr>
-							
+								</td>
+							</tr>
 						) : (
 							<div />
 						)}
@@ -65,9 +64,11 @@ class singleInventory extends React.Component {
 													quantity: qtyRemoved.value
 												},
 												headers: {
-				Authorization:`bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}` 
-			}
-											},)
+													Authorization: `bearer ${tokenServices.getAuthToken(
+														config.TOKEN_KEY
+													)}`
+												}
+											})
 											.then(() => {
 												if (inventory.quantity === 0 || inventory.quantity < qtyRemoved.value) {
 													inventory.quantity = 0;
