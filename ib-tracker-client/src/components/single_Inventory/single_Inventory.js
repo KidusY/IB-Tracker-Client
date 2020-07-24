@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-
+import config from '../../config';
+import tokenServices from '../../services/tokenServices';
 import Ibcontext from '../../context';
 import './single_inventory-style.css';
 class singleInventory extends React.Component {
@@ -15,16 +16,16 @@ class singleInventory extends React.Component {
 		return (
 			<Ibcontext.Consumer>
 				{(context) => (
-					<div>
+					<tbody>
 						{this.state.inventory ? (
-							<div>
+							
 								<tr className="inventory">
-									<td className="col">{inventory.productid}</td>
+									<td className="col unImportant">{inventory.productid}</td>
 									<td className="col">{inventory.title}</td>
 									<td className="col">{inventory.location}</td>
 									<td className="col">{inventory.quantity}</td>
-									<td className="col">{inventory.comments}</td>
-									<td className="col">{inventory.user_name}</td>
+									<td className="col unImportant">{inventory.comments}</td>
+									<td className="col unImportant">{inventory.user_name}</td>
 
 									<td className="col">	<button
 										id="sold"
@@ -44,12 +45,12 @@ class singleInventory extends React.Component {
 									</button>
 									</td>
 								</tr>
-							</div>
+							
 						) : (
 							<div />
 						)}
 						{this.state.showRemoveQTY ? (
-							<div>
+							<tr className="qtyInput">
 								<input name="quanityTobeRemoved" id="qtyRemoved" placeholder="Remove QTY" />
 								<button
 									class="confirm"
@@ -62,8 +63,11 @@ class singleInventory extends React.Component {
 											.delete(`http://localhost:8000/api/inventory/${inventory.inventoryid}`, {
 												data: {
 													quantity: qtyRemoved.value
-												}
-											})
+												},
+												headers: {
+				Authorization:`bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}` 
+			}
+											},)
 											.then(() => {
 												if (inventory.quantity === 0 || inventory.quantity < qtyRemoved.value) {
 													inventory.quantity = 0;
@@ -79,19 +83,19 @@ class singleInventory extends React.Component {
 								>
 									Confrim
 								</button>
-							</div>
+							</tr>
 						) : (
-							<div />
+							<tr />
 						)}
 						{this.state.showSoldQTY ? (
-							<div>
-								<input name="quanityTobeSold" placeholder="Sold QTY" />
-								<button class="confirm">Confrim</button>
-							</div>
+							<tr className="qtyInput">
+								<input name="quanityTobeSold" id="qtyRemoved" placeholder="Sold QTY" />
+								<button className="confirm">Confrim</button>
+							</tr>
 						) : (
-							<div />
+							<tr />
 						)}
-					</div>
+					</tbody>
 				)}
 			</Ibcontext.Consumer>
 		);

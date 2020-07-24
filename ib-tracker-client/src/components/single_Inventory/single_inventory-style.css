@@ -1,39 +1,35 @@
 .inventory {
-    display: flex;
-    margin: 0 auto;
-    width: 85%;      
-    text-align: center;
-    background-color: white;
-	
+	display: flex;
+	margin: 0 auto;
+	width: 85%;
+	text-align: center;
+	background-color: white;
 }
 
-.table{
-    margin-top: 40px ;
-    overflow-y: scroll;
-
+.table {
+	margin-top: 40px;
+	overflow-y: scroll;
 }
-.tableHeader{
-    border-top: 2px solid #1b5e20;
-    border-bottom: 2px soild #111111 ;
-    background-color: #ebebeb;
-    box-shadow: 2px 2px 2px rgba(61, 61, 61, 0.067)11;
+.tableHeader {
+	border-top: 2px solid #1b5e20;
+	border-bottom: 2px soild #111111;
+	background-color: #ebebeb;
+	box-shadow: 2px 2px 2px rgba(61, 61, 61, 0.067)11;
 }
-tr{
-    border-bottom: 1px solid #dfdfdf;
-    padding: 10px;
+tr {
+	border-bottom: 1px solid #dfdfdf;
+	padding: 10px;
 }
 th,
 td {
 	text-align: center;
-    margin: 0 auto;
-   
+	margin: 0 auto;
 }
 .col {
 	display: block;
-	padding: 10px;
-	margin: 0 50px;
+	padding: 10px 15px;
 	text-align: center;
-	width: 100px;
+	width: 200px;
 }
 
 #sold {
@@ -60,4 +56,61 @@ td {
 }
 #remove:hover {
 	background-color: #b71c1c;
+}
+.qtyInput{
+	display: flex;
+	justify-content: center;
+	width: 90%;
+}
+#qtyRemoved{
+	border: 1px solid rgba(221, 221, 221, 0.067);
+	display: block;
+	margin: 10px auto;
+}
+.confirm{
+	display: block;
+	margin: 10px auto;
+	height: 30px;
+	padding: 0 20px;
+	background-color: #43a047;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+}
+@media (max-width: 320px) {
+	.col {
+		padding: 10px 5px !important;
+		width: 60px !important;
+	}
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+	.unImportant {
+		display: none;
+	}
+	.inventory {
+		margin: none;
+		width: 100%;
+	}
+	.col {
+		padding: 10px 10px;
+
+		width: 80px;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+	nav {
+		display: none;
+	}
 }

@@ -1,17 +1,20 @@
 import React from 'react';
-const Header = ()=>(
+import './header-style.css';
+const Header = (props)=>{
+    const location = props.location.slice(1,props.location.length);
+    console.log(location);
+return(
     <header className="header">
     <div className="titleNav">
-     <h2>Dashboard </h2>
+    
+     <h2>Dashboard &gt; {location}</h2>
      </div>
 
-     <form> 
-         <input placeholder = "Search" />
-         <input placeholder="location"/>
-         <input placeholder="Date Added"/>
-     <button id="btn-search"type="submit">Search</button>
-     </form>
+    
      </header>
 )
+}
+    
+
 
 export default Header;

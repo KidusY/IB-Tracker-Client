@@ -27,21 +27,28 @@ class inventory extends React.Component {
 			<div className="container">
 				<NavBar />
 				<div className= "main">
-					<Header />
+					<Header location={this.props.location.pathname}/>
 
 					<div className="collection">
 						<table className="table">
+						<thead>
+
 							<tr className="inventory tableHeader">
-								<th className="col">Id </th>
+								<th className="col unImportant">Id </th>
 								<th className="col">Title</th>
 								<th className="col">Location</th>
-								<th className="col">Quantity</th>
-								<th className="col">Comment</th>
-								<th className="col">User</th>
+								<th className="col">Qty</th>
+								<th className="col unImportant">Comment</th>
+								<th className="col unImportant">User</th>
 								<th className="col">{''} </th>
 								<th className="col">{''} </th>
 							</tr>
-							{this.state.inventory.map((inventory) => <SingleIventory inventory={inventory} />)}
+						</thead>
+						
+						{this.state.inventory.map((inventory,i) => <SingleIventory inventory={inventory} key={i}/>)}
+					
+						
+							
 						</table>
 					</div>
 				</div>

@@ -7,19 +7,21 @@ import budgetIcon from '../../assets/budget.png';
 import inventoryIcon from '../../assets/inventory.png';
 import productsIcon from '../../assets/products.png';
 import logsIcon from '../../assets/logs.png'
+import userPic from '../../assets/profilePic.png'
 import './navBar-style.css';
 
 const navBar = (props) => {
 	return (
 		<IbContext.Consumer>
 			{(context) => (
-				<div>
-					<nav>
-					
+				
+					<nav>					
 						
 						{context.login ? (
 							<div className="user">
-							<div className="profilePic">profile pic </div>
+							<div className="profilePic">
+							<img src="https://i.imgur.com/4ePrUDp.png" alt="userpic"/>
+							</div>
 							<h5>{tokenServices.getUser()} </h5>
 								<div
 									id="btn-logOut"
@@ -65,7 +67,7 @@ const navBar = (props) => {
 							
 						</ul>
 					</nav>
-				</div>
+				
 			)}
 		</IbContext.Consumer>
 	);

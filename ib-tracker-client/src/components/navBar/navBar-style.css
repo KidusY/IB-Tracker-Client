@@ -15,6 +15,7 @@ nav ul li{
     margin: 30px 0;
     text-decoration: none;
     padding: 5px;
+    width: 200px;
 }
 nav ul li:hover{ 
 color:#4caf50
@@ -25,7 +26,7 @@ width: 20px;
 }
 #btn-logOut{
     padding: 7px 15px;
-    margin:10px 30px;
+    margin:10px auto;
     border:2px solid #111111;
     border-radius: 10px;
     width: 100px;
@@ -35,9 +36,34 @@ width: 20px;
     height: 100px;
     background-color: gray;
     border-radius: 100%;
-    margin: 30px 50px;
+    margin: 30px auto;
     text-align: center;
+}
+.profilePic img{
+    width: 100px;
 }
 .user{
+    display: block;
+    margin: 0 auto;
     text-align: center;
+    width: 80%;
 }
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) { 
+  
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {  }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) { 
+    nav{
+        display: none;
+    }
+ }

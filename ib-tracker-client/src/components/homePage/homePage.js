@@ -1,15 +1,19 @@
 import React from 'react';
 import NavBar from '../navBar/navBar';
-import Header from '../header/header';
+import './homePage-style.css';
+
 const homepage = () => {
 	return (
 		<div className="container">
         <NavBar />
 			<div className="main">
 				
-                <div className="collection">
+                <div className="collection home">
 
 				<div className="homePage">
+					<div className="homePageHeader"> 
+
+					</div>
 					
 				</div>
                 </div>

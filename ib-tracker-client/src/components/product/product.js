@@ -1,5 +1,6 @@
 import React from 'react';
 import './product-style.css';
+import tokenService from '../../services/tokenServices';
 import AddInventory from '../addInventoy/addInventory';
 import axios from 'axios';
 class product extends React.Component {
@@ -15,8 +16,14 @@ class product extends React.Component {
 		console.log(this.state.inventoryFrom);
 	};
 	addInventory = (inventory) => {
-        console.log(inventory);
-		axios.post('http://localhost:8000/api/inventory/', inventory).then((res) => console.log('added inventory'));
+		console.log(inventory);
+		axios
+			.post('http://localhost:8000/api/inventory/', inventory, {
+				headers: {
+					Authorization: `bearer ${tokenService.getAuthToken()}`
+				}
+			})
+			.then((res) => console.log('added inventory'));
 	};
 	render() {
 		const { productInfo } = this.props;
@@ -27,9 +34,16 @@ class product extends React.Component {
 				<h4>{productInfo.type}</h4>
 				<p>{productInfo.description} </p>
 				<p>$ {productInfo.price}</p>
-				<button id="add-Btn" onClick={() => this.handleAddForm()}>Add</button>
+				<button id="add-Btn" onClick={() => this.handleAddForm()}>
+					Add
+				</button>
 				{this.state.inventoryFrom ? (
-					<AddInventory handleAddForm={this.handleAddForm} addInventory={this.addInventory} productId={productInfo.productid} _title={productInfo.title} />
+					<AddInventory
+						handleAddForm={this.handleAddForm}
+						addInventory={this.addInventory}
+						productId={productInfo.productid}
+						_title={productInfo.title}
+					/>
 				) : (
 					<div />
 				)}

@@ -1,0 +1,33 @@
+.addProductFrom {
+	position: fixed;
+	top: 40%;
+    left: 50%;
+    display: block;
+    margin: 0 auto;
+    padding: 30px;
+    width: 600px;
+	height: 500px;
+    background-color: rgb(255, 255, 255);
+    transform: translate(-200px,-100px);
+    border-radius: 10px;
+}
+
+.addProductFrom input{
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    width: 70%;
+    border: 1px solid #dbdbdb;
+}
+
+.addProductFrom button{
+    display: block;
+    margin: 30px auto;
+    background-color: #4caf50 ;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}

@@ -1,0 +1,93 @@
+.login {
+    display: flex;
+   
+}
+.loginArt {
+	width: 50%;
+	height: 100vh;
+	background:  linear-gradient(
+        rgba(37, 116, 0, 0.308), 
+        rgba(0, 149, 112, 0.212)
+      ), url("../../assets/LoginArt.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.loginArt h1{
+    text-align: center;
+    color: white;
+    margin-top: 30%;
+    font-size: 60px;
+}
+.loginArt h2{
+    text-align: center;
+    color: white;
+}
+.loginFrom {
+	display: block;
+	width: 50%; 
+   
+}
+.loginFrom form{
+    width: 70%;
+    margin: 0 auto;
+    transform:translateY(50%) ;
+    
+}
+.loginFrom input,
+label {
+	display: block;
+    margin: 10px auto;
+    text-align: center;
+    font-weight: bold;
+}
+.input-icons i {
+    position: absolute;
+    
+}
+
+.input-icons {
+	width: 100%;
+	margin-bottom: 10px;
+}
+.userIcon{
+    display: block;
+    width: 20%;
+    margin: 0 auto;
+}
+.icon {
+	margin-left: 150px;
+	padding: 10px;
+	min-width: 40px;
+	color: #1b5e20;
+}
+
+.input-field {
+	border: 1px solid rgba(185, 185, 185, 0.63);
+	border-radius: 10px;
+	width: 100%;
+	max-width: 400px;
+	padding: 10px;
+	text-align: center;
+}
+#loginBtn {
+   
+	background: rgb(93, 152, 73);
+    background: linear-gradient(90deg, rgba(93, 152, 73, 1) 0%, rgba(49, 121, 9, 1) 33%, rgba(0, 212, 255, 1) 100%);
+    -webkit-transition: background 2s; /* For Safari 3.0 to 6.0 */
+    transition: background 2s; /* For modern browsers */
+    width: 150px;
+    padding: 10px;
+    border: none;
+    color:white;
+    font-weight: bold;
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
+    cursor: pointer;
+  
+}
+#loginBtn:hover {
+    background: linear-gradient(90deg, rgba(93, 152, 73, 1) 0%, rgba(49, 121, 9, 1) 33%, rgba(49, 121, 9, 1) 100%);
+    
+}
