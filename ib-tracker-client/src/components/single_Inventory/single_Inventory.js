@@ -57,7 +57,6 @@ class singleInventory extends React.Component {
 										e.preventDefault();
 										const qtyRemoved = document.querySelector('#qtyRemoved');
 										console.log(inventory.inventoryid);
-
 										axios
 											.delete(`http://localhost:8000/api/inventory/${inventory.inventoryid}`, {
 												data: {

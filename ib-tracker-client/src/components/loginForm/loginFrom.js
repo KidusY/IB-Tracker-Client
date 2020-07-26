@@ -15,7 +15,7 @@ const loginFrom = (props) => {
 			.then((res) => {
 				console.log(res);
 				tokenServices.saveAuthToken(res.data.authToken);
-				tokenServices.saveUser(res.data.sub);
+				tokenServices.saveUser(res.data.sub,res.data.payload.user_id);
 				props.setLogin(true);
 				props.setUser(res.data.sub);
 				if (res.status === 201) {

@@ -19,8 +19,8 @@ const addinventory = ({ handleAddForm, addInventory, productId, _title }) => {
 								location: location.value,
 								quantity: quantity.value,
 								comments: comments.value,
-								userid: '2',
-								user_name: tokenServices.getUser()
+								userid: `${tokenServices.getUser().userId}`,
+								user_name: tokenServices.getUser().user
 							};
 							addInventory(inventory);
 							handleAddForm();
@@ -29,7 +29,7 @@ const addinventory = ({ handleAddForm, addInventory, productId, _title }) => {
 						<input name="location" placeholder="location" />
 						<input name="quantity" placeholder="quantity" />
 						<input name="comments" placeholder="comments" />
-						<input type="submit" value="Add" />
+						<button type="submit"> Add </button>
 					</form>
 				</div>
 			)}

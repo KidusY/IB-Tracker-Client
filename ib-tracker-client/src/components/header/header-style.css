@@ -1,22 +1,17 @@
-.header{
-    width: 100%;
-    height: 200px;
+.titleNav{
+    width:100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 30px;
 }
-.header form{
-    display:  block;
-    width: 100%;
-   
-    padding: 10px 50px;
-    margin: 0 auto;
+.titleNav h2{
+    padding: 20px 40px;
 }
-.header form input{
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    min-width: 200px;
-    border: 1px solid #d8d8d8;
-    padding: 10px 30px;
-     margin: 30px auto;
-    border-radius: 5px;
-    outline: none;
+#dashboardFont{
+    font-weight: bold;
+    font-size: 25px;   
+}
+#currentLocation{
+    font-weight: bold;
+    font-size: 20px; 
 }

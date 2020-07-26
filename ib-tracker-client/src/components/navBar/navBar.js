@@ -16,13 +16,15 @@ const navBar = (props) => {
 			{(context) => (
 				
 					<nav>					
-						
+						{console.log(tokenServices.getUser().user_name)
+						}
 						{context.login ? (
 							<div className="user">
+							<h2> <i className="material-icons">track_changes</i> IB tracker </h2>
 							<div className="profilePic">
 							<img src="https://i.imgur.com/4ePrUDp.png" alt="userpic"/>
 							</div>
-							<h5>{tokenServices.getUser()} </h5>
+							<h4>{tokenServices.getUser().user_name} </h4>
 								<div
 									id="btn-logOut"
 									onClick={() => {
@@ -63,6 +65,9 @@ const navBar = (props) => {
 							</Link>
 							<Link to="/budget" style={{textDecoration:'none', color:'grey',fontWeight:"bold"}}>
 								<li><img src={budgetIcon} alt="Budget"/>Budget</li>
+							</Link>
+							<Link to="/users" style={{textDecoration:'none', color:'grey',fontWeight:"bold"}}>
+								<li><i className="material-icons">supervisor_account</i>users</li>
 							</Link>
 							
 						</ul>

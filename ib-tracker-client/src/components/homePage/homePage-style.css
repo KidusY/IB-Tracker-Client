@@ -1,0 +1,72 @@
+.homePageHeader {
+	margin: 40px;
+}
+
+.homePageHeader h1 {
+	font-size: 40px;
+	margin-left: 5px;
+}
+.homePageHeader h2 {
+	color: #1b5e20;
+}
+
+.home {
+	background-color: white !important;
+	overflow: scroll;
+	padding: 10px;
+}
+.menu {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	color: white;
+	font-weight: bold;
+}
+.menu .menu-items {
+	width: 320px;
+	height: 300px;
+	text-align: center;
+	margin: 20px;
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 20px;
+	cursor: pointer;
+
+	box-shadow: 10px 10px 2px rgba(58, 58, 58, 0.787);
+}
+.menu .menu-items:hover {
+	transition: ease-in-out 0.3s;
+	box-shadow: 0px 0px 0px rgba(58, 58, 58, 0.787);
+}
+.Product {
+	display: block;
+	background-color: #cf7200;
+}
+
+.Product img {
+	display: block;
+	margin: 30px auto;
+	width: 200px;
+}
+.Inventory {
+	background-color: #6d4c41;
+}
+.logs {
+	background-color: #757575;
+}
+.budget {
+	background-color: #546e7a;
+}
+.budget img {
+	display: block;
+	margin: 40px auto;
+	width: 200px;
+}
+.users {
+	background-color: #00acc1;
+}
+.users img {
+    display: block;
+	margin: 40px auto;
+	width: 300px;
+}

@@ -10,6 +10,7 @@
     background-color: rgb(255, 255, 255);
     transform: translate(-200px,-100px);
     border-radius: 10px;
+    
 }
 
 .addProductFrom input{
@@ -17,7 +18,8 @@
     margin: 10px auto;
     padding: 5px;
     width: 70%;
-    border: 1px solid #dbdbdb;
+    border: 1px solid #bbbbbb;
+   
 }
 
 .addProductFrom button{

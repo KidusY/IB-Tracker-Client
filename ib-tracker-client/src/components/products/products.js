@@ -37,26 +37,32 @@ class products extends React.Component {
 	};
 
 	render() {
-		
 		return (
 			<div className="container">
 				<NavBar />
 				<div className="main">
-					<Header searchForProduct={this.searchForProduct}  location={this.props.location.pathname}/>
+					<Header searchForProduct={this.searchForProduct} location={this.props.location.pathname} />
 					<form
+						className="SearchInput"
 						onChange={(e) => {
 							e.preventDefault();
 							this.searchForProduct(document.querySelector('#search').value);
 						}}
 					>
-						<input id="search" placeholder="Search" />
+						<div className="search">
+							<span className="fa fa-search" />
+							<input id="search" placeholder="Search term" />							
+						</div>
+						
 					</form>
-					<button onClick={() => this.handleAddFormModal()}>Add</button>
+					<button id="addedFormModal"  onClick={() => this.handleAddFormModal()}><i className="material-icons">add_circle_outline</i></button>
 					<div className="collection">
 						<div className="products">
+						
 							{this.state.searchedProduct.map((productInfo, i) => (
 								<Product productInfo={productInfo} key={i} />
 							))}
+							
 						</div>
 					</div>
 
