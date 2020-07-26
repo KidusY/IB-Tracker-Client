@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import userIcon from '../../assets/hiclipart.com.png';
 import tokenServices from '../../services/tokenServices';
+import config from '../../config';
 import './loginFrom-style.css';
 const loginFrom = (props) => {
 	const onSubmitHandler = (ev) => {
@@ -11,7 +12,7 @@ const loginFrom = (props) => {
 			password: password.value
 		};
 		axios
-			.post('http://localhost:8000/api/login', loginInfo)
+			.post(`${config.API_ENDPOINT}/api/login`, loginInfo)
 			.then((res) => {
 				console.log(res);
 				tokenServices.saveAuthToken(res.data.authToken);
