@@ -4,7 +4,7 @@
 	justify-content: center;
 	flex-wrap: wrap;
 	width: 70%;
-  margin: 30px auto;
+  margin: 100px auto;
   border-radius: 10px;
 	padding: 20px;
 	background-color: rgb(255, 255, 255);
@@ -12,16 +12,17 @@
  
 }
 .search {
-	position: relative;
+	position: fixed;
 	color: #aaa;
   font-size: 16px;
   display: block;
-  margin: 0 auto;
+ right: 0;
+ top:50px;
   width:50%;
 }
 
 .search input {
-	width: 250px;
+
 	height: 32px;
 	background: #ffffff;
 	border: 1px solid rgb(209, 209, 209);
@@ -29,6 +30,7 @@
   display: block;
   margin: 6px auto;
   width: 100%;
+  right: 0;
 
 }
 
@@ -38,7 +40,7 @@
 .search .fa-search {
 	position: absolute;
 	top: 13px;
-  left: 10px;
+  left: 6px;
 
 }
 #addedFormModal{
@@ -53,4 +55,34 @@
 #addedFormModal i{
 	color:#2e7d32 ;
 	font-size: 40px;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+	.search {
+		width: 100%;
+		margin: 20px 0;
+	}
+	.search input {
+		width: 100%;
+	}
+	.search .fa-search {
+		left: 6px;
+	}
+	.products {
+		margin: 100px auto
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+	
 }

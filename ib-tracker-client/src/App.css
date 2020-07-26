@@ -5,22 +5,20 @@
 
 	box-sizing: border-box;
 }
-body{
-  overflow: hidden;
-}
+
 .main {
 	width: 100%;
 }
 ::-webkit-scrollbar {
 	width: 6px;
-	border-left: 1px solid #e6ecf8;
+	border-left: 1px solid #e6ecf86e;
 }
 ::-webkit-scrollbar-thumb {
-	background-color: #b6b6b6;
+	background-color: #b6b6b67c;
 }
 .collection {
 	display: block;
-	margin: 0 auto;
+	margin: 20px auto;	
 	background-color: #e0e0e0;
 	height: 100vh;
 	width: 100%;
@@ -29,4 +27,5 @@ body{
 .container {
 	display: flex;
 	width: 100%;
+
 }

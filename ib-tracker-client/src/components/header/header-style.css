@@ -3,6 +3,7 @@
     background-color: #4caf50;
     color: white;
     padding: 30px;
+    position: fixed;
 }
 .titleNav h2{
     padding: 20px 40px;

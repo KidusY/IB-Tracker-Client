@@ -19,7 +19,7 @@ class product extends React.Component {
 	addInventory = (inventory) => {
 		console.log(inventory);
 		axios
-			.post(`${config.API_ENDPOINT}api/inventory/`, inventory, {
+			.post(`http://localhost:8000/api/inventory/`, inventory, {
 				headers: {
 					Authorization: `bearer ${tokenService.getAuthToken()}`
 				}
