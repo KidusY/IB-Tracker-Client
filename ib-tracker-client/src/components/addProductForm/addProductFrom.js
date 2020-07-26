@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+import config from '../../config';
 import tokenService from '../../services/tokenServices';
 import './addProductFrom-Style.css';
 
 const addProductFrom = (props) => {
 	const handleAddProducts = (productInfo) => {
-		axios.post('http://localhost:8000/api/product/', productInfo, {
+		axios.post(`${config.API_ENDPOINT}/api/product/`, productInfo, {
 			headers: {
 				Authorization: `bearer ${tokenService.getAuthToken()}`
 			}
