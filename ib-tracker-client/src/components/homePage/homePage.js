@@ -9,10 +9,10 @@ import budgetIcon from '../../assets/Group 4@2x.png';
 import usersIcon from '../../assets/Group 5@2x.png';
 
 const homepage = (props) => {
-	const style ={
-		color:"white",
-		textDecoration: "none"
-	}
+	const style = {
+		color: 'white',
+		textDecoration: 'none'
+	};
 	return (
 		<div className="container">
 			<NavBar />
@@ -44,7 +44,7 @@ const homepage = (props) => {
 									Budget
 								</div>
 							</Link>
-							<Link to="/users"style={style}>
+							<Link to="/users" style={style}>
 								<div className="menu-items users">
 									<img src={usersIcon} alt="users" />
 									Users

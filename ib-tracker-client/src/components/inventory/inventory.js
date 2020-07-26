@@ -15,7 +15,7 @@ class inventory extends React.Component {
 	}
 	componentDidMount() {
 		axios
-			.get('http://localhost:8000/api/inventory/', {
+			.get(`${config.API_ENDPOINT}/api/inventory/`, {
 				headers: {
 					Authorization: `bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}`
 				}

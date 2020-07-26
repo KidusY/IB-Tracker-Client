@@ -5,7 +5,7 @@ const services = {
     
 	async getProducts() {
        
-		const product = await axios.get(`${config.API_ENDPOINT}/product`, {
+		const product = await axios.get(`${config.API_ENDPOINT}/api/product`, {
 			headers: {
 				Authorization:`bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}` 
 			}

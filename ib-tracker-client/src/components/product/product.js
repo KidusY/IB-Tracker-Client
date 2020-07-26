@@ -3,6 +3,7 @@ import './product-style.css';
 import tokenService from '../../services/tokenServices';
 import AddInventory from '../addInventoy/addInventory';
 import axios from 'axios';
+import config from '../../config';
 class product extends React.Component {
 	constructor() {
 		super();
@@ -18,7 +19,7 @@ class product extends React.Component {
 	addInventory = (inventory) => {
 		console.log(inventory);
 		axios
-			.post('http://localhost:8000/api/inventory/', inventory, {
+			.post(`${config.API_ENDPOINT}api/inventory/`, inventory, {
 				headers: {
 					Authorization: `bearer ${tokenService.getAuthToken()}`
 				}
