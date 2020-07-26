@@ -17,7 +17,7 @@ const Addinventory = ({ handleAddForm, addInventory, productId, _title }) => {
 						quantity: quantity.value,
 						comments: comments.value,
 						userid: tokenServices.getUser().userId,
-						user_name: tokenServices.getUser().user
+						user_name: tokenServices.getUser().user_name
 					};
 					addInventory(inventory);
 					handleAddForm();

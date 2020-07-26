@@ -47,7 +47,6 @@ td {
 }
 #remove {
 	height: 30px;
-
 	padding: 0 10px;
 	background-color: #e53935;
 	border: none;
@@ -61,7 +60,9 @@ td {
 .qtyInput{
 	display: flex;
 	justify-content: center;
-	width: 90%;
+	width: 30%;
+	min-width: 300px;
+	margin: 0 auto;
 }
 #qtyRemoved{
 	border: 1px solid rgba(221, 221, 221, 0.067);
@@ -98,6 +99,12 @@ td {
 		padding: 10px 10px;
 
 		width: 80px;
+	}
+	#sold {
+		padding: 0 5px;
+	}
+	#remove {
+		padding: 0 5px;
 	}
 }
 
