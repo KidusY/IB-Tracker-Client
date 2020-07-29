@@ -14,12 +14,20 @@ class product extends React.Component {
 
 	handleAddForm = () => {
 		this.setState({ inventoryFrom: !this.state.inventoryFrom });
-		console.log(this.state.inventoryFrom);
+	};
+	handleDeleteProduct = (productId) => {
+		axios
+			.delete(`http://localhost:8000/api/product/${productId}`, {
+				headers: {
+					Authorization: `bearer ${tokenService.getAuthToken()}`
+				}
+			})
+			
 	};
 	addInventory = (inventory) => {
 		console.log(inventory);
 		axios
-			.post(`http://localhost:8000/api/inventory/`, inventory, {
+			.post(`${config.API_ENDPOINT}/api/inventory/`, inventory, {
 				headers: {
 					Authorization: `bearer ${tokenService.getAuthToken()}`
 				}
@@ -28,7 +36,7 @@ class product extends React.Component {
 	};
 	render() {
 		const { productInfo } = this.props;
-
+		console.log(productInfo);
 		return (
 			<div className="product">
 				<h3>{productInfo.title}</h3>
@@ -36,13 +44,17 @@ class product extends React.Component {
 				<p>{productInfo.description} </p>
 				<p>$ {productInfo.price}</p>
 				<div className="btn-collection">
-				<button id="add-Btn" className="btn" onClick={() => this.handleAddForm()}>
-				<i className="material-icons">add_circle</i>
-				</button>
-			
-				<button id="delete-Btn" className="btn" onClick={() => this.handleAddForm()}>
-				<i className="material-icons">indeterminate_check_box</i>
-				</button>
+					<button id="add-Btn" className="btn" onClick={() => this.handleAddForm()}>
+						<i className="material-icons">add_circle</i>
+					</button>
+
+					<button
+						id="delete-Btn"
+						className="btn"
+						onClick={() => this.handleDeleteProduct(productInfo.productid)}
+					>
+						<i className="material-icons">indeterminate_check_box</i>
+					</button>
 				</div>
 				{this.state.inventoryFrom ? (
 					<AddInventory
