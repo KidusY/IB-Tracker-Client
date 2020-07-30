@@ -6,6 +6,7 @@ import User from '../user/user';
 import config from '../../config';
 import spinner from '../../assets/spinner.gif';
 import tokenServices from '../../services/tokenServices';
+import Ibservices from '../../services/Ib-tracker-services';
 import IBTrackerServices from '../../services/Ib-tracker-services';
 import './users-style.css';
 
@@ -38,9 +39,14 @@ class users extends React.Component {
 					Authorization: tokenServices.getAuthToken()
 				}
 			})
-			.then((res) => console.log(res))
+			.then(() => Ibservices.postLog({
+				actions: `Updated User ${userInfo.user_name}`,
+				user_name: `${tokenServices.getUser().user_name}`
+				
+			}))
 			.catch((err) => console.log(err));
 	};
+	
 	createUser = (userInfo) => {
 		this.setState({ error: '' });
 		axios
@@ -49,7 +55,13 @@ class users extends React.Component {
 					Authorization: tokenServices.getAuthToken()
 				}
 			})
-			.then(() => this.setState({ addUserForm: false }))
+			.then(() => this.setState({ addUserForm: false })).then(()=>{
+				Ibservices.postLog({
+					actions: `User Created ${userInfo.user_name} `,
+					user_name: `${tokenServices.getUser().user_name}`
+					
+				})
+			})
 			.catch((err) => {
 				console.log(err.response.data);
 				if (err.response.data) return this.setState({ error: err.response.data.error });

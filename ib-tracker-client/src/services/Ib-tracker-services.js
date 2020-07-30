@@ -11,14 +11,24 @@ const services = {
 		return product;
 	},
 	async getUsers() {
-	const users =	axios.get('http://localhost:8000/api/users', {
+	const users =	await axios.get(`${config.API_ENDPOINT}/api/users`, {
 			headers: {
-				Authorization: tokenServices.getAuthToken()
+				Authorization: `bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}`
 			}
 		});
 
 		return users;
-	}
+	},
+	async postLog(logInfo) {
+	console.log(tokenServices.getAuthToken(config.TOKEN_KEY));
+		const log =	await axios.post(`${config.API_ENDPOINT}/api/logs`,logInfo, {
+				headers: {
+					Authorization: `bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}`
+				}
+			});
+	
+			return log;
+		}
 };
 
 export default services;

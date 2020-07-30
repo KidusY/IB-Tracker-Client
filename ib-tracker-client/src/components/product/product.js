@@ -1,6 +1,7 @@
 import React from 'react';
 import './product-style.css';
 import tokenService from '../../services/tokenServices';
+import IbServices from '../../services/Ib-tracker-services';
 import AddInventory from '../addInventoy/addInventory';
 import axios from 'axios';
 import config from '../../config';
@@ -8,7 +9,8 @@ class product extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			inventoryFrom: false
+			inventoryFrom: false,
+			error:''
 		};
 	}
 
@@ -17,26 +19,44 @@ class product extends React.Component {
 	};
 	handleDeleteProduct = (productId) => {
 		axios
-			.delete(`http://localhost:8000/api/product/${productId}`, {
+			.delete(`${config.API_ENDPOINT}/api/product/${productId}`, {
 				headers: {
 					Authorization: `bearer ${tokenService.getAuthToken()}`
 				}
 			})
-			
+			.then(
+				res=>{
+					IbServices.postLog({
+						actions: 'Product Deleted',
+						user_name: `${tokenService.getUser().user_name}`,
+						productid: productId,
+						quantity:1
+						
+					})
+				}
+				
+			).catch(err=>this.setState({error:err.response.data}))
 	};
 	addInventory = (inventory) => {
 		console.log(inventory);
 		axios
 			.post(`${config.API_ENDPOINT}/api/inventory/`, inventory, {
 				headers: {
-					Authorization: `bearer ${tokenService.getAuthToken()}`
+					Authorization: `bearer ${tokenService.getAuthToken(config.TOKEN_KEY)}`
 				}
 			})
-			.then((res) => console.log('added inventory'));
+			.then(
+				IbServices.postLog({
+					actions: 'Added Inventory',
+					user_name: `${tokenService.getUser().user_name}`,
+					productid: inventory.productid,
+					quantity: inventory.quantity
+				})
+			);
 	};
 	render() {
 		const { productInfo } = this.props;
-		console.log(productInfo);
+
 		return (
 			<div className="product">
 				<h3>{productInfo.title}</h3>
