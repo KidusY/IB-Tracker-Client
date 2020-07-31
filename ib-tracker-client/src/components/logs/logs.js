@@ -43,6 +43,7 @@ class logs extends React.Component {
 										<th className="col">User</th>
 										<th className="col">Actions</th>
 										<th className="col">Qty</th>
+										<th className="col">Price</th>
 										<th className="col">Product Id</th>
 										<th className="col">Date</th>
 									</tr>

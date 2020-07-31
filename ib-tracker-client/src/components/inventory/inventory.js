@@ -3,6 +3,7 @@ import NavBar from '../navBar/navBar';
 import axios from 'axios';
 import Header from '../header/header';
 import './inventory-style.css';
+import IbServices from '../../services/Ib-tracker-services';
 import SingleIventory from '../single_Inventory/single_Inventory';
 import spinner from '../../assets/spinner.gif';
 
@@ -16,7 +17,40 @@ class inventory extends React.Component {
 			inventory: []
 		};
 	}
+	handleDeletingInventory = (inventory, qtyRemoved, index) => {
+		console.log(index);
+		console.log(Number(this.state.inventory[index].quantity));
+		console.log(Number(qtyRemoved));
+		if (
+			Number(this.state.inventory[index].quantity) > Number(qtyRemoved) ||
+			Number(this.state.inventory[index].quantity) === Number(qtyRemoved)
+		) {
+			const newInventory = this.state.inventory;
+			newInventory[index].quantity = Number(newInventory[index].quantity) - Number(qtyRemoved);
+			this.setState({ inventory: newInventory });
 
+			axios
+				.delete(`${config.API_ENDPOINT}/api/inventory/${inventory.inventoryid}`, {
+					data: {
+						quantity: qtyRemoved
+					},
+					headers: {
+						Authorization: `bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}`
+					}
+				})
+				.then((res) => {
+					console.log(res);
+					IbServices.postLog({
+						actions: `Removed Inventory`,
+						quantity: Number(qtyRemoved),
+						user_name: `${tokenServices.getUser().user_name}`
+					});
+				});
+				return true;
+		}
+
+		return false;
+	};
 	componentDidMount() {
 		axios
 			.get(`${config.API_ENDPOINT}/api/inventory/`, {
@@ -33,8 +67,10 @@ class inventory extends React.Component {
 		return (
 			<div className="container">
 				<NavBar />
+				<Header location={this.props.location.pathname} />
+				<div className="filler"/>
 				<div className="main">
-					<Header location={this.props.location.pathname} />
+					
 
 					<div className="collection">
 						<table className="table">
@@ -53,9 +89,18 @@ class inventory extends React.Component {
 							{this.state.inventory.length === 0 ? (
 								<img className="loadingSpinner" src={spinner} alt="spinner" />
 							) : (
-								this.state.inventory.map((inventory, i) => (
-									<SingleIventory inventory={inventory} key={i} />
-								))
+								this.state.inventory.map((inventory, i) => {
+									if (Number(inventory.quantity) !== 0) {
+										return (
+											<SingleIventory
+												inventory={inventory}
+												key={i}
+												index={i}
+												handleDeletingInventory={this.handleDeletingInventory}
+											/>
+										);
+									}
+								})
 							)}
 						</table>
 					</div>

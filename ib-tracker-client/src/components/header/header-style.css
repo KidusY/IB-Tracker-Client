@@ -1,19 +1,22 @@
-.titleNav{
-    width:100%;
-    background-color: #4caf50;
-    color: white;
-    padding: 30px;
-    position: fixed;
-    z-index: 2000;
+.header {
+	width: 100%;
+	position: fixed;
+	z-index: 2000;
+	background-color: #4caf50;
 }
-.titleNav h2{
-    padding: 20px 40px;
+.titleNav {
+	width: 100%;
+	color: white;
+	padding: 30px;
 }
-#dashboardFont{
-    font-weight: bold;
-    font-size: 25px;   
+.titleNav h2 {
+	padding: 20px 40px;
 }
-#currentLocation{
-    font-weight: bold;
-    font-size: 20px; 
+#dashboardFont {
+	font-weight: bold;
+	font-size: 25px;
+}
+#currentLocation {
+	font-weight: bold;
+	font-size: 20px;
 }

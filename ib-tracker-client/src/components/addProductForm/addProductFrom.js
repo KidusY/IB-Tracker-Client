@@ -1,18 +1,8 @@
 import React from 'react';
-import axios from 'axios';
-import config from '../../config';
-import tokenService from '../../services/tokenServices';
+
 import './addProductFrom-Style.css';
 
 const addProductFrom = (props) => {
-	const handleAddProducts = (productInfo) => {
-		axios.post(`${config.API_ENDPOINT}/api/product/`, productInfo, {
-			headers: {
-				Authorization: `bearer ${tokenService.getAuthToken()}`
-			}
-		}).catch(err=>console.log(err))
-	};
-
 	return (
 		<div>
 			<form
@@ -30,10 +20,15 @@ const addProductFrom = (props) => {
 						price: price.value,
 						rating: rating.value
 					};
-					handleAddProducts(productInfo);
-                    props.handleAddFormModal();
+					props.handleAddProducts(productInfo);
+					props.handleAddFormModal();
 				}}
 			>
+			<label className="close" onClick={()=>props.handleAddFormModal()}><i className="material-icons">exit_to_app</i></label>
+				<label>Add Product</label>
+
+				
+
 				<input name="upc" placeholder="UPC" />
 				<input name="title" placeholder="Name" />
 				<input name="description" placeholder="Description" />

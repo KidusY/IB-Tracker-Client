@@ -63,11 +63,19 @@ td {
 	width: 30%;
 	min-width: 300px;
 	margin: 0 auto;
+	text-indent: 10px;
+}
+#qtyError{
+	font-size: 14px;
+	margin-right:7px;
+	color: #b71c1c;
 }
 #qtyRemoved{
 	border: 1px solid rgba(221, 221, 221, 0.067);
 	display: block;
 	margin: 10px auto;
+	text-indent: 10px;
+	border-radius:5px;
 }
 .confirm{
 	display: block;

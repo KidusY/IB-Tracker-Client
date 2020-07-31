@@ -23,9 +23,10 @@ class loginFrom extends React.Component {
 		};
 		axios
 			.post(`${config.API_ENDPOINT}/api/login`, loginInfo)
-			.then((res) => {				
+			.then((res) => {
+				console.log(res);				
 				tokenServices.saveAuthToken(res.data.authToken);
-				tokenServices.saveUser(res.data.sub, res.data.payload.user_id);
+				tokenServices.saveUser(res.data.sub, res.data.payload.user_id,res.data.userImage);
 				this.props.setLogin(true);
 				this.props.setUser(res.data.sub);
 				if (res.status === 201) {

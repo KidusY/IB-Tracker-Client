@@ -1,4 +1,6 @@
 .homePageHeader {
+	display: flex;
+	justify-content: space-between;
 	margin: 100px 10px;
 	width: 100%;
 	text-align: center;
@@ -6,10 +8,11 @@
 
 .homePageHeader h1 {
 	font-size: 40px;
-	margin-left: 5px;
+	margin-left: 10px;
 }
 .homePageHeader h2 {
 	width: 100%;
+	margin-left: 10px;
 	color: #1b5e20;
 }
 
@@ -52,10 +55,22 @@
 	width: 200px;
 }
 .Inventory {
+	display: block;
 	background-color: #6d4c41;
 }
+.Inventory img{
+	display: block;
+	margin: 0 auto;
+	width: 220px;
+}
 .logs {
-	background-color: #757575;
+	display: block;
+	background-color: #363636;
+}
+.logs img{
+	display: block;
+	margin: 0 auto;
+	width: 220px;
 }
 .budget {
 	background-color: #546e7a;

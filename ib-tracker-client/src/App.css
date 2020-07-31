@@ -18,7 +18,7 @@
 }
 .collection {
 	display: block;
-	margin: 20px auto;	
+	margin: 20px auto;
 	background-color: #e0e0e0;
 	height: 100vh;
 	width: 100%;
@@ -27,5 +27,37 @@
 .container {
 	display: flex;
 	width: 100%;
+}
+.filler {
+}
+.date{
+	display: none;
+}
+@media (max-width: 320px) {
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+}
 
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	.filler {
+		width: 250px;
+	}
+
+	#navBarIcon{
+		display: none;
+	}
+	.date{
+		display: block;
+		color: rgb(26, 170, 45);
+	}
 }

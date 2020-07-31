@@ -17,26 +17,7 @@ class product extends React.Component {
 	handleAddForm = () => {
 		this.setState({ inventoryFrom: !this.state.inventoryFrom });
 	};
-	handleDeleteProduct = (productId) => {
-		axios
-			.delete(`${config.API_ENDPOINT}/api/product/${productId}`, {
-				headers: {
-					Authorization: `bearer ${tokenService.getAuthToken()}`
-				}
-			})
-			.then(
-				res=>{
-					IbServices.postLog({
-						actions: 'Product Deleted',
-						user_name: `${tokenService.getUser().user_name}`,
-						productid: productId,
-						quantity:1
-						
-					})
-				}
-				
-			).catch(err=>this.setState({error:err.response.data}))
-	};
+	
 	addInventory = (inventory) => {
 		console.log(inventory);
 		axios
@@ -50,6 +31,7 @@ class product extends React.Component {
 					actions: 'Added Inventory',
 					user_name: `${tokenService.getUser().user_name}`,
 					productid: inventory.productid,
+					price:this.props.productInfo.price,
 					quantity: inventory.quantity
 				})
 			);
@@ -71,7 +53,7 @@ class product extends React.Component {
 					<button
 						id="delete-Btn"
 						className="btn"
-						onClick={() => this.handleDeleteProduct(productInfo.productid)}
+						onClick={() => this.props.handleDeleteProduct(productInfo.productid,productInfo.price)}
 					>
 						<i className="material-icons">indeterminate_check_box</i>
 					</button>

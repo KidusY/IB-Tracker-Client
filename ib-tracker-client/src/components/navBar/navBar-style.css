@@ -2,8 +2,9 @@
 	
 	position: fixed;
 	left:1%;
-	top:11%;	
+	top:20%;	
 	cursor: pointer;
+	z-index: 1000 ;
 
 }
 #navBarIcon i{
@@ -19,6 +20,7 @@ nav {
 	z-index: 1000;
 	position: fixed;
 }
+
 nav ul {
 	width: 50%;
 	list-style: none;
@@ -58,9 +60,7 @@ nav ul li img {
 	margin: 30px auto;
 	text-align: center;
 }
-.profilePic img {
-	width: 100px;
-}
+
 .user {
 	display: block;
 	margin: 0 auto;
@@ -76,11 +76,26 @@ nav ul li img {
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+	.user h2 {
+		margin-top: 0px;
+	}
+	nav ul {
+		
+		margin: 0px auto;
+	
+	}
+	nav ul li {
+		margin: 15px 0;
+		text-decoration: none;
+		padding: 5px;
+		width: 200px;
+	}
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+	
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

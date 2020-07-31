@@ -4,7 +4,11 @@ import Product from '../product/product';
 import Header from '../header/header';
 import service from '../../services/Ib-tracker-services';
 import spinner from '../../assets/spinner.gif';
+import axios from 'axios';
 import AddProductForm from '../addProductForm/addProductFrom';
+import config from '../../config';
+import tokenService from '../../services/tokenServices';
+import $ from 'jquery';
 import './products-style .css';
 class products extends React.Component {
 	constructor() {
@@ -15,34 +19,97 @@ class products extends React.Component {
 			addProductsForm: false
 		};
 	}
-
 	componentDidMount() {
 		service.getProducts().then((products) => {
 			const productInfo = products.data;
 			this.setState({ productsInfo: productInfo, searchedProduct: productInfo });
 		});
 	}
+	handleDeleteProduct = (productId,price) => {
+		console.log(price);
+		const newProducts = this.state.searchedProduct.filter(
+			(product) => Number(product.productid) !== Number(productId)
+		);
+
+		this.setState({ searchedProduct: newProducts});
+
+		axios
+			.delete(`${config.API_ENDPOINT}/api/product/${productId}`, {
+				headers: {
+					Authorization: `bearer ${tokenService.getAuthToken()}`
+				}
+			})
+			.then(() => {
+				service.postLog({
+					actions: 'Product Deleted',
+					user_name: `${tokenService.getUser().user_name}`,
+					productid: productId,
+					price:price,
+					quantity: 1
+				});
+			})
+			.catch((err) => this.setState({ error: err.response.data }));
+	};
+	handleAddProducts = (productInfo) => {
+		const newProducts = this.state.searchedProduct;
+		newProducts.push(productInfo);
+
+		this.setState({searchedProduct: newProducts});
+		
+		
+		
+		
+		axios.post(`${config.API_ENDPOINT}/api/product/`, productInfo, {
+			headers: {
+				Authorization: `bearer ${tokenService.getAuthToken()}`
+			}
+		})
+		.then((res)=>{
+			console.log(res.data)
+			return(
+				service.postLog({
+					actions: `Added New Product`,
+					quantity:1,
+					productid:res.data.productid,
+					price:productInfo.price,
+					user_name: `${tokenService.getUser().user_name}`
+					
+				})
+			)
+		}	)
+		.catch(err=>console.log(err.response))
+	};
+
+	
 	searchForProduct = (productName) => {
 		const searchedItem = this.state.productsInfo.filter((product) =>
 			product.title.toLowerCase().includes(productName.toLowerCase())
 		);
 		if (searchedItem.length) {
 			this.setState({ searchedProduct: searchedItem });
-		} else {
-			this.setState({ searchedProduct: this.state.productsInfo });
 		}
+		else{
+			this.setState({searchedProduct: []})
+		}
+	
 	};
 
 	handleAddFormModal = () => {
+		if(!this.state.addProductsForm)
+		{$('.main').css({opacity:'0.5',filter: "grayscale(100%) brightness(40%)"})}
+		else{
+		$('.main').css({opacity:'1',filter: "none"})}
 		this.setState({ addProductsForm: !this.state.addProductsForm });
 	};
 
 	render() {
 		return (
 			<div className="container">
+				<Header searchForProduct={this.searchForProduct} location={this.props.location.pathname} />
 				<NavBar />
+				<div className="filler"/>
 				<div className="main">
-					<Header searchForProduct={this.searchForProduct} location={this.props.location.pathname} />
+				
 					<form
 						className="SearchInput"
 						onChange={(e) => {
@@ -64,18 +131,24 @@ class products extends React.Component {
 								<img className="loadingSpinner" src={spinner} alt="spinner" />
 							) : (
 								this.state.searchedProduct.map((productInfo, i) => (
-									<Product productInfo={productInfo} key={i} />
+									<Product
+										productInfo={productInfo}
+										key={i}
+										handleDeleteProduct={this.handleDeleteProduct}
+										index={i}
+									/>
 								))
 							)}
 						</div>
 					</div>
 
-					{this.state.addProductsForm ? (
-						<AddProductForm handleAddFormModal={this.handleAddFormModal} />
+				
+				</div>
+				{this.state.addProductsForm ? (
+						<AddProductForm handleAddFormModal={this.handleAddFormModal} handleAddProducts={this.handleAddProducts} />
 					) : (
 						<div />
 					)}
-				</div>
 			</div>
 		);
 	}

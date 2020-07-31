@@ -33,34 +33,37 @@ class users extends React.Component {
 	};
 
 	updateUser = (userInfo) => {
+		console.log(userInfo);
+		console.log(this.state.currentUserInfo.id);
 		axios
 			.put(`${config.API_ENDPOINT}/api/users/${this.state.currentUserInfo.id}`, userInfo, {
 				headers: {
 					Authorization: tokenServices.getAuthToken()
 				}
 			})
-			.then(() => Ibservices.postLog({
-				actions: `Updated User ${userInfo.user_name}`,
-				user_name: `${tokenServices.getUser().user_name}`
-				
-			}))
+			.then(() =>
+				Ibservices.postLog({
+					actions: `Updated User ${userInfo.user_name}`,
+					user_name: `${tokenServices.getUser().user_name}`
+				})
+			)
 			.catch((err) => console.log(err));
 	};
-	
+
 	createUser = (userInfo) => {
 		this.setState({ error: '' });
 		axios
 			.post(`${config.API_ENDPOINT}/api/users`, userInfo, {
 				headers: {
-					Authorization: tokenServices.getAuthToken()
+					Authorization: tokenServices.getAuthToken(config.TOKEN_KEY)
 				}
 			})
-			.then(() => this.setState({ addUserForm: false })).then(()=>{
+			.then(() => this.setState({ addUserForm: false }))
+			.then(() => {
 				Ibservices.postLog({
 					actions: `User Created ${userInfo.user_name} `,
 					user_name: `${tokenServices.getUser().user_name}`
-					
-				})
+				});
 			})
 			.catch((err) => {
 				console.log(err.response.data);
@@ -73,8 +76,10 @@ class users extends React.Component {
 		return (
 			<div className="container">
 				<NavBar />
+				<Header location={this.props.location.pathname} />
+				<div className="filler"/>
 				<div className="main">
-					<Header location={this.props.location.pathname} />
+					
 					<div className="allUsers">
 						{this.state.users.length === 0 ? (
 							<img className="loadingSpinner" src={spinner} alt="spinner" />
@@ -103,11 +108,11 @@ class users extends React.Component {
 									ev.preventDefault();
 									const { _fullName, _nickName, _imageLink, _userName, _isadmin } = ev.target;
 									const userInfo = {
-										full_name: _fullName.value,
-										nickname: _nickName.value,
-										user_name: _userName.value,
-										isadmin: _isadmin,
-										profilepic: _imageLink.value,
+										full_name: `${_fullName.value}`,
+										nickname: `${_nickName.value}`,
+										user_name: `${_userName.value}`,
+										isadmin: _isadmin.value,
+										profilepic: `${_imageLink.value}`,
 										date_modified: date
 									};
 									this.updateUser(userInfo);
@@ -132,8 +137,10 @@ class users extends React.Component {
 									defaultValue={this.state.currentUserInfo.nickname}
 									placeholder="Nick Name"
 								/>
-								<input name="_imageLink" placeholder="Image Link" />
-								<select name="_isadmin">
+								<input name="_imageLink"
+								defaultValue={this.state.currentUserInfo.profilepic}
+								 placeholder="Image Link" />
+								<select name="_isadmin" defaultValue="false">
 									<option value="true">Admin</option>
 									<option value="false">Basic</option>
 								</select>

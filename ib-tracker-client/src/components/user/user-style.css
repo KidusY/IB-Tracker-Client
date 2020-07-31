@@ -1,6 +1,7 @@
 .userInfo {
 	width: 300px;
 	height: 300px;
+	margin: 10px;
 	background-color: rgb(235, 235, 235);
     border-radius: 10px;
     text-align: center;
@@ -15,5 +16,11 @@ transform: scale(1.05);
 	display: block;
 	width: 100px;
 	margin: 2px auto;
+}
+.userPic{
+	margin: 20px auto;
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
 }
 
