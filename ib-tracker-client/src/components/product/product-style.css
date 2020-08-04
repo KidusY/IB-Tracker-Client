@@ -7,6 +7,9 @@
     padding: 5px;
     box-shadow: 2px 2px 2px 2px #aaaaaa;
 }
+.product h4 {
+color: #00695c;
+}
 .product p {
 	margin: 5px auto;
 	width: 100%;
@@ -36,6 +39,6 @@
 }
 .btn-collection{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 0;
 }

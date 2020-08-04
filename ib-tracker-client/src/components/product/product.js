@@ -5,19 +5,30 @@ import IbServices from '../../services/Ib-tracker-services';
 import AddInventory from '../addInventoy/addInventory';
 import axios from 'axios';
 import config from '../../config';
+import $ from 'jquery';
 class product extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			inventoryFrom: false,
+			inventoryFrom:false,
 			error:''
 		};
 	}
 
-	handleAddForm = () => {
+
+	handleAddInventoryForm = () => {
+		if (!this.state.inventoryFrom) {
+			$('.collection ,.product, .products').css({ background: '#797979' });
+			$('.products h3,h4').css({ color: '#797979' });		
+			$('.btn').css({ display: 'none' });
+		} else {
+			$('.collection ,.product, .products').css({ background: 'white' });
+			$('.collection').css({ background: '#e0e0e0' });
+			$('.products h3,h4').css({ color: 'black' });	
+			$('.btn').css({ display: 'block' });
+		}
 		this.setState({ inventoryFrom: !this.state.inventoryFrom });
 	};
-	
 	addInventory = (inventory) => {
 		console.log(inventory);
 		axios
@@ -41,12 +52,8 @@ class product extends React.Component {
 
 		return (
 			<div className="product">
-				<h3>{productInfo.title}</h3>
-				<h4>{productInfo.type}</h4>
-				<p>{productInfo.description} </p>
-				<p>$ {productInfo.price}</p>
 				<div className="btn-collection">
-					<button id="add-Btn" className="btn" onClick={() => this.handleAddForm()}>
+					<button id="add-Btn" className="btn" onClick={() => this.handleAddInventoryForm()}>
 						<i className="material-icons">add_circle</i>
 					</button>
 
@@ -58,9 +65,14 @@ class product extends React.Component {
 						<i className="material-icons">indeterminate_check_box</i>
 					</button>
 				</div>
+				<h3>{productInfo.title}</h3>
+				<h4>{productInfo.type}</h4>
+				<p>{productInfo.description} </p>
+				<p>$ {productInfo.price}</p>
+			
 				{this.state.inventoryFrom ? (
 					<AddInventory
-						handleAddForm={this.handleAddForm}
+						handleAddInventoryForm={this.handleAddInventoryForm}
 						addInventory={this.addInventory}
 						productId={productInfo.productid}
 						_title={productInfo.title}

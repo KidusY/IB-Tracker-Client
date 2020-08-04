@@ -28,7 +28,7 @@ const addProductFrom = (props) => {
 				<label>Add Product</label>
 
 				
-
+				
 				<input name="upc" placeholder="UPC" />
 				<input name="title" placeholder="Name" />
 				<input name="description" placeholder="Description" />

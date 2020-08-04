@@ -12,7 +12,8 @@
     width: 400px;
     height: 550px;
     border-radius: 5px;
-    background: rgb(228, 227, 227);
+    background: rgb(255, 255, 255);
+    box-shadow: 10px 10px 7px rgba(95, 95, 95, 0.849);
 }
 .userForm button {
     display: block;

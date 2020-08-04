@@ -16,6 +16,7 @@ class products extends React.Component {
 		this.state = {
 			productsInfo: [],
 			searchedProduct: [],
+			inventoryFrom: false,
 			addProductsForm: false
 		};
 	}
@@ -25,13 +26,12 @@ class products extends React.Component {
 			this.setState({ productsInfo: productInfo, searchedProduct: productInfo });
 		});
 	}
-	handleDeleteProduct = (productId,price) => {
-		console.log(price);
+	handleDeleteProduct = (productId, price) => {
 		const newProducts = this.state.searchedProduct.filter(
 			(product) => Number(product.productid) !== Number(productId)
 		);
 
-		this.setState({ searchedProduct: newProducts});
+		this.setState({ searchedProduct: newProducts });
 
 		axios
 			.delete(`${config.API_ENDPOINT}/api/product/${productId}`, {
@@ -44,7 +44,7 @@ class products extends React.Component {
 					actions: 'Product Deleted',
 					user_name: `${tokenService.getUser().user_name}`,
 					productid: productId,
-					price:price,
+					price: price,
 					quantity: 1
 				});
 			})
@@ -54,51 +54,46 @@ class products extends React.Component {
 		const newProducts = this.state.searchedProduct;
 		newProducts.push(productInfo);
 
-		this.setState({searchedProduct: newProducts});
-		
-		
-		
-		
-		axios.post(`${config.API_ENDPOINT}/api/product/`, productInfo, {
-			headers: {
-				Authorization: `bearer ${tokenService.getAuthToken()}`
-			}
-		})
-		.then((res)=>{
-			console.log(res.data)
-			return(
-				service.postLog({
+		this.setState({ searchedProduct: newProducts });
+
+		axios
+			.post(`${config.API_ENDPOINT}/api/product/`, productInfo, {
+				headers: {
+					Authorization: `bearer ${tokenService.getAuthToken()}`
+				}
+			})
+			.then((res) => {
+				console.log(res.data);
+				return service.postLog({
 					actions: `Added New Product`,
-					quantity:1,
-					productid:res.data.productid,
-					price:productInfo.price,
+					quantity: 1,
+					productid: res.data.productid,
+					price: productInfo.price,
 					user_name: `${tokenService.getUser().user_name}`
-					
-				})
-			)
-		}	)
-		.catch(err=>console.log(err.response))
+				});
+			})
+			.catch((err) => console.log(err.response));
 	};
 
 	
+
 	searchForProduct = (productName) => {
 		const searchedItem = this.state.productsInfo.filter((product) =>
 			product.title.toLowerCase().includes(productName.toLowerCase())
 		);
 		if (searchedItem.length) {
 			this.setState({ searchedProduct: searchedItem });
+		} else {
+			this.setState({ searchedProduct: [] });
 		}
-		else{
-			this.setState({searchedProduct: []})
-		}
-	
 	};
 
 	handleAddFormModal = () => {
-		if(!this.state.addProductsForm)
-		{$('.main').css({opacity:'0.5',filter: "grayscale(100%) brightness(40%)"})}
-		else{
-		$('.main').css({opacity:'1',filter: "none"})}
+		if (!this.state.addProductsForm) {
+			$('.main').css({ opacity: '0.5', filter: 'grayscale(100%) brightness(40%)' });
+		} else {
+			$('.main').css({ opacity: '1', filter: 'none' });
+		}
 		this.setState({ addProductsForm: !this.state.addProductsForm });
 	};
 
@@ -107,9 +102,8 @@ class products extends React.Component {
 			<div className="container">
 				<Header searchForProduct={this.searchForProduct} location={this.props.location.pathname} />
 				<NavBar />
-				<div className="filler"/>
+				<div className="filler" />
 				<div className="main">
-				
 					<form
 						className="SearchInput"
 						onChange={(e) => {
@@ -126,7 +120,9 @@ class products extends React.Component {
 						<i className="material-icons">add_circle_outline</i>
 					</button>
 					<div className="collection">
+					<h2> Products </h2>
 						<div className="products">
+					
 							{this.state.searchedProduct.length === 0 ? (
 								<img className="loadingSpinner" src={spinner} alt="spinner" />
 							) : (
@@ -134,6 +130,8 @@ class products extends React.Component {
 									<Product
 										productInfo={productInfo}
 										key={i}
+										
+										inventoryFrom={this.state.inventoryFrom}
 										handleDeleteProduct={this.handleDeleteProduct}
 										index={i}
 									/>
@@ -141,14 +139,15 @@ class products extends React.Component {
 							)}
 						</div>
 					</div>
-
-				
 				</div>
 				{this.state.addProductsForm ? (
-						<AddProductForm handleAddFormModal={this.handleAddFormModal} handleAddProducts={this.handleAddProducts} />
-					) : (
-						<div />
-					)}
+					<AddProductForm
+						handleAddFormModal={this.handleAddFormModal}
+						handleAddProducts={this.handleAddProducts}
+					/>
+				) : (
+					<div />
+				)}
 			</div>
 		);
 	}

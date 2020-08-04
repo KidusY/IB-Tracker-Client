@@ -2,7 +2,8 @@ import React from 'react';
 import tokenServices from '../../services/tokenServices';
 import './addInventory-style.css';
 
-const Addinventory = ({ handleAddForm, addInventory, productId, _title }) => {
+const Addinventory = ({ handleAddInventoryForm, addInventory, productId, _title }) => {
+	console.log(_title);
 	return (
 		<div>
 			<form
@@ -20,13 +21,16 @@ const Addinventory = ({ handleAddForm, addInventory, productId, _title }) => {
 						user_name: tokenServices.getUser().user_name
 					};
 					addInventory(inventory);
-					handleAddForm();
+					handleAddInventoryForm()
 				}}
 			>
+			<label className="close" onClick={()=>handleAddInventoryForm()}><i className="material-icons">exit_to_app</i></label>
+			<label>Add Inventory</label>
+			<label className="title">*{_title}</label>
 				<input name="location" placeholder="location" />
 				<input name="quantity" placeholder="quantity" />
 				<input name="comments" placeholder="comments" />
-				<button type="submit"> Add </button>
+				<button type="submit" className="add-btn"> Add </button>
 			</form>
 		</div>
 	);
