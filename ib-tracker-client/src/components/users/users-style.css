@@ -10,7 +10,7 @@
     left: 45%;
     padding: 10px;   
     width: 400px;
-    height: 500px;
+    height: 550px;
     border-radius: 5px;
     background: rgb(228, 227, 227);
 }
@@ -39,9 +39,16 @@
     margin: 30px auto;
     outline: none;
 }
-.userForm label{
+.userForm .errorLabel{
     color:#c62828 ;
     font-weight: bold;
+}
+.userForm .close{
+    color:#c62828 ;
+  margin-right: 10px;
+   text-align: right;
+   cursor: pointer;
+   
 }
 .addUser-btn{
     position: fixed;

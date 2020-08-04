@@ -8,6 +8,7 @@ import spinner from '../../assets/spinner.gif';
 import tokenServices from '../../services/tokenServices';
 import Ibservices from '../../services/Ib-tracker-services';
 import IBTrackerServices from '../../services/Ib-tracker-services';
+import $ from 'jquery'
 import './users-style.css';
 
 class users extends React.Component {
@@ -31,6 +32,13 @@ class users extends React.Component {
 			currentUserInfo: userInfo
 		});
 	};
+	handleAddUserModal = ()=>{
+		if(!this.state.addUserForm)
+		{$('.main').css({opacity:'0.5',filter: "grayscale(100%) brightness(40%)"})}
+		else{
+		$('.main').css({opacity:'1',filter: "none"})}
+		this.setState({addUserForm:!this.state.addUserForm});
+	}
 
 	updateUser = (userInfo) => {
 		console.log(userInfo);
@@ -96,12 +104,13 @@ class users extends React.Component {
 					</div>
 					<button
 						className="addUser-btn"
-						onClick={() => this.setState({ addUserForm: !this.state.addUserForm })}
+						onClick={() => this.handleAddUserModal()}
 					>
 						<i className="material-icons">account_circle</i>
 					</button>
 					{this.state.editForm ? (
 						<div>
+						
 							<form
 								className="userForm"
 								onSubmit={(ev) => {
@@ -120,6 +129,9 @@ class users extends React.Component {
 									this.setState({ editForm: false });
 								}}
 							>
+						
+							<label className="close"><i className="material-icons">exit_to_app</i></label>
+							
 								<input
 									name="_userName"
 									defaultValue={this.state.currentUserInfo.user_name}
@@ -151,7 +163,9 @@ class users extends React.Component {
 						<div />
 					)}
 
-					{this.state.addUserForm ? (
+					
+				</div>
+				{this.state.addUserForm ? (
 						<div>
 							<form
 								className="userForm"
@@ -177,7 +191,10 @@ class users extends React.Component {
 									this.createUser(userInfo);
 								}}
 							>
-								<label htmlFor="">{this.state.error}</label>
+								
+							<label className="close" onClick={()=>this.handleAddUserModal()}><i className="material-icons">exit_to_app</i></label>
+							<label>Add User</label>
+								<label htmlFor="" className="errorLabel">{this.state.error}</label>
 								<input name="_userName" placeholder="User Name" required />
 								<input name="_password" placeholder="Password" required />
 								<input name="_fullName" placeholder="Full Name" required />
@@ -193,7 +210,6 @@ class users extends React.Component {
 					) : (
 						<div />
 					)}
-				</div>
 			</div>
 		);
 	}
