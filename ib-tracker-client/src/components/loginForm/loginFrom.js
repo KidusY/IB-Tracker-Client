@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import spinner from '../../assets/spinner.gif';
 import userIcon from '../../assets/hiclipart.com.png';
 import tokenServices from '../../services/tokenServices';
 import config from '../../config';
@@ -9,7 +10,8 @@ class loginFrom extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-			error: ''
+			error: '',
+			pending:false
 		}
 	}
 	
@@ -37,9 +39,8 @@ class loginFrom extends React.Component {
 					this.props.setLoading();
 				}
 			})
-			.catch((err) => {
-				console.log(err.response.data.error)
-				this.setState({error:err.response.data.error});
+			.catch((err) => {				
+				this.setState({error:err.response.data.error, pending:false});
 				
 			});
 	};
@@ -54,6 +55,7 @@ class loginFrom extends React.Component {
 				<div className="loginFrom">
 					<form
 						onSubmit={(e) => {
+							this.setState({pending:true})
 							e.preventDefault();							
 							this.onSubmitHandler(e);
 
@@ -62,11 +64,17 @@ class loginFrom extends React.Component {
 				
 						<img className="userIcon" src={userIcon} alt="user" />
 						<div className="input-icons">
-						<label htmlFor="" >{this.state.error}</label>
-							<label htmlFor ="userName">User Name</label>
+						<label htmlFor="" className="errorLabel" >{this.state.error}</label>
+						{
+							this.state.pending ?
+							<label htmlFor="" ><img src={spinner} className="loginSpinner" alt="loading"/></label>
+							: <div/>
+						}
+						
+							<label htmlFor ="userName" className="inputLabel">User Name</label>
 							<i className="material-icons icon">account_box</i>
 							<input id="userName" className="input-field" name="userName" placeholder="JohnDoe" />
-							<label htmlFor="password">Password</label>
+							<label htmlFor="password" className="inputLabel">Password</label>
 							<i className="material-icons icon">vpn_key</i>
 							<input
 								type="password"

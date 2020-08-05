@@ -30,7 +30,7 @@ const navBar = (props) => {
 							{context.login ? (
 								<div className="user">
 									<div id="navBarIcon" onClick={() => handleMenuBar()}>
-										<i className="material-icons">close</i>
+										<i className="material-icons closingIcon">close</i>
 									</div>
 									<h2>
 										{' '}

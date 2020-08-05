@@ -28,7 +28,7 @@ class singleInventory extends React.Component {
 					</td>
 					<td className="col">
 						<button id="remove" onClick={() => this.setState({ showRemoveQTY: !this.state.showRemoveQTY })}>
-							Remove
+						<i className="material-icons">remove_circle_outline</i>
 						</button>
 					</td>
 				</tr>

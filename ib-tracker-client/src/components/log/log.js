@@ -9,7 +9,7 @@ const Log = (props) => {
 			<td className="col">{props.log.quantity} </td>
 			<td className="col">{props.log.price} </td>
 			<td className="col">{props.log.productId} </td>
-			<td className="col">{new Date(props.log.date_created).toDateString()} </td>
+			<td className="col unImportant">{new Date(props.log.date_created).toDateString()} </td>
 		</tr>
 	);
 };

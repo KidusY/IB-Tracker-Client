@@ -31,8 +31,10 @@ class logs extends React.Component {
 		return (
 			<div className="container">
 				<NavBar />
+				<Header searchForProduct={this.searchForProduct} location={this.props.location.pathname} />
+				<div className="filler" />
 				<div className="main">
-					<Header searchForProduct={this.searchForProduct} location={this.props.location.pathname} />
+				
 					<div className="collection">
 						{this.state.logs.length === 0 ? (
 							<img className="loadingSpinner" src={spinner} alt="spinner" />
@@ -45,7 +47,7 @@ class logs extends React.Component {
 										<th className="col">Qty</th>
 										<th className="col">Price</th>
 										<th className="col">Product Id</th>
-										<th className="col">Date</th>
+										<th className="col unImportant">Date</th>
 									</tr>
 								</thead>
                                 <tbody>

@@ -45,7 +45,10 @@ label {
     position: absolute;
     
 }
+.loginFrom .errorLabel{
+    color: red;
 
+}
 .input-icons {
 	width: 100%;
 	margin-bottom: 10px;
@@ -90,4 +93,66 @@ label {
 #loginBtn:hover {
     background: linear-gradient(90deg, rgba(93, 152, 73, 1) 0%, rgba(49, 121, 9, 1) 33%, rgba(49, 121, 9, 1) 100%);
     
+}
+@media (max-width: 320px) {
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+    .login {
+        display: block;
+       
+    }
+    .inputLabel{
+        color: white;
+        font-weight: bolder;
+        text-shadow: 2px 2px 2px rgba(17, 17, 17, 0.65);
+    }
+    .loginArt {
+        width: 100%;
+        height: 100vh;
+        background:  linear-gradient(
+            rgba(16, 42, 4, 0.829), 
+            rgba(3, 44, 34, 0)
+          ), url("../../assets/LoginArt.jpg");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+     
+    }
+    .loginArt h1{
+        text-align: center;
+        color: white;
+        margin-top: 0;
+        font-size: 60px;
+    }
+    .loginFrom form{
+        position: absolute;
+        width: 100%;
+        height: 350px;
+        top: 0;       
+        
+    }
+    .icon {
+        margin-left: 6px;
+        padding: 10px;
+        min-width: 40px;
+        color: #1b5e20;
+    }
+    .loginSpinner{
+        width:20%;
+        min-width: 80px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }

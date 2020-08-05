@@ -94,7 +94,12 @@
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
+	.collection h2{
+		margin: 10px 0;
+		transform: translateY(100px);
+		
+	}
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -103,4 +108,16 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (max-width: 1200px) {
+	.collection h2{
+		margin: 10px 0;
+		transform: translateY(100px);
+		
+	}
+}
+@media (min-width: 1200px) {
+	.collection h2{
+		margin: 10px 0;
+		transform: translateY(100px);
+		
+	}
 }

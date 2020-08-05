@@ -5,10 +5,16 @@
 	top:20%;	
 	cursor: pointer;
 	z-index: 1000 ;
+	background-color: rgba(17, 17, 17, 0.15);
+	text-align: center;
 
 }
+
 #navBarIcon i{
+	display: block;
+	margin: 0 auto;
 	font-size: 40px;
+	text-align: center;
 }
 nav {
 	height: 100vh;
@@ -19,6 +25,8 @@ nav {
 	padding-top: 100px;
 	z-index: 1000;
 	position: fixed;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 nav ul {
@@ -78,7 +86,7 @@ nav ul li img {
 /* Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
 	.user h2 {
-		margin-top: 0px;
+		margin-top: 10px;
 	}
 	nav ul {
 		
@@ -86,10 +94,16 @@ nav ul li img {
 	
 	}
 	nav ul li {
-		margin: 15px 0;
+		margin: 8px 0;
 		text-decoration: none;
 		padding: 5px;
 		width: 200px;
+	}
+	.profilePic {
+		width: 70px;
+		height: 70px;	
+		margin: 10px auto;
+		
 	}
 }
 
