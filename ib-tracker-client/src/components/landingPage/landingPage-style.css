@@ -1,72 +1,171 @@
-.logo{
-    margin: 30px;
-    color: white;
-}
-
 .landingPage {
-	background-image: linear-gradient(rgba(12, 12, 12, 0.308), rgba(0, 149, 112, 0.212)),
-		url("../../assets/landingPage.jpg");
-	background-size: cover;
-	background-position: center;
-	background-repeat: none;
-    height: 85vh;
-    overflow: hidden !important;
-}
-.landingPage .heroText {
-    display: block;
-    float: right;
-    color: white;
-    margin: 300px;
-    width: 30%;
-}
-.heroPic {
-    width: 35%;
-}
-.landingPage p , h1{
-    display: block;
-   
-   
 }
 .landingPage header {
-	display: flex;
 	width: 100%;
-	height: 100px;
-	justify-content: space-between;
-}
-.landingPageInfo{
-    background-color: rgb(255, 255, 255);
-    height: 25vh;
-    width: 70%;
-    margin: 0 auto;
-    transform: translateY(-200px);
-    display: flex;
-    justify-content: space-evenly;
-    border-radius: 10px;
-}
-.landingPageInfo .card{
-    background-color: #ffffff;
-    width: 300px;
-    padding: 15px 0px;
+	display: flex;
     
-}
-.landingPageInfo .card h3{
-    color: rgb(40, 124, 58);
-}
-.landingPageInfo .card img{
-    margin-top: 30px;
-    width: 50px;
+    margin: 0 auto;
 }
 
-#btn-login {
-	margin: 20px 100px;
+.heroImg img {
+	width: 100%;
+}
+.landingPage .logo {
+	margin: 30px 10px;
+	font-size: 30px;
+	color: #303f9f;
+	font-weight: bolder;
+}
+.landingPage #btn-login {
+	margin: 30px 50px;
 	padding: 5px 20px;
-	width: 100px;
+	width: 80px;
 	height: 40px;
-	background: transparent;
+	background: #303f9f;
 	border-radius: 10px;
-	border: 1px solid #ffffff;
+	border: 1px solid #303f9f;
 	color: white;
 	font-weight: bolder;
 	cursor: pointer;
 	box-shadow: 2px 2px 2px 1px rgba(255, 255, 255, 0.376);
+}
+.landingPage #btn-login:hover {
+    background: #4658cc;
+}
+.landingPage .heroText {
+	margin-top: 70px;
+	color: #303f9f;
+}
+.card {
+	background-color: #f8f8f8;
+	margin: 20px;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px rgba(17, 17, 17, 0.301);
+}
+.purple {
+	color: white;
+	background-color: #313b80;
+}
+.purple img {
+	border-radius: 10px;
+	background-color: white;
+}
+
+.card img {
+	width: 30%;
+}
+.secondSection{
+    width: 100%;
+    height: 90vh;
+    background: url("../../assets//background\ 2.jpg");
+    background-repeat: no-repeat;
+}
+.secondSectionText{
+    width: 80%;
+    padding: 30px;
+    margin-left: 10px;
+    transform:translateY(120px)  ;
+    color: white;
+}
+.secondSectionText ul{
+    margin: 20px auto;
+    display: block;
+    width: 80%;
+    font-weight: 500;
+}
+.secondSectionImg{
+    width: 100%;   
+    
+    
+}
+.secondSectionImg img{
+    width: 70%;
+    display: block;
+    border-radius: 100%;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+footer{
+    text-align: center;
+
+}
+
+@media (max-width: 320px) {
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	
+
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .landingPage .logo {
+        margin: 30px 100px;
+    }
+    .landingPage header {
+        justify-content: space-between;
+    }
+    .hero {
+		display: flex;
+		width: 80%;
+		justify-content: space-between;
+		margin: 0 auto;
+	}
+	.heroText {
+        width: 50%;
+        margin: 10px;
+    }
+    .heroImg{
+        margin: 10px;
+        width: 50%;
+    }
+    .landingPageInfo{
+        display: flex;
+        justify-content: center;
+    }
+    .card{
+        width: 300px;
+    
+    }
+    .secondSection{
+        display: flex;        
+        margin: 0px auto;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 80vh;
+        background: url("../../assets//background\ 2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .secondSectionText{
+        width: 50% !important;
+        margin-left: 20px;
+        height: 300px;
+        padding: 0;
+        transform:translateY(300px)  ;
+        color: white;
+    }
+    .secondSectionImg{
+        width: 35%;
+       height: 400px;
+        border-radius: 100%;
+        background-color: #ffffff;
+    }
+    .secondSectionImg img{
+        width: 80%;
+        display: block;
+        margin-top: 100px 
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) {
+}
+@media (min-width: 1200px) {
 }

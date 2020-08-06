@@ -4,11 +4,6 @@ import Header from '../header/header';
 import { Link } from 'react-router-dom';
 import tokenServices from '../../services/tokenServices';
 import './homePage-style.css';
-import productIcon from '../../assets/Icon awesome-barcode@2x.png';
-import budgetIcon from '../../assets/Group 4@2x.png';
-import usersIcon from '../../assets/Group 5@2x.png';
-import logsIcon from '../../assets/logs-icon-10.jpg'
-import invetoryIcon from '../../assets/inventoryHompageIcon.png';
 
 const homepage = (props) => {
 	const style = {
@@ -24,41 +19,41 @@ const homepage = (props) => {
 				<div className="collection home">
 					<div className="homePage">
 						<div className="homePageHeader">
-						<div className="textHeader"> 
-						<h1> Hello, {tokenServices.getUser().user_name} </h1>
-							<h2> Welcome to IB tracker </h2>
+							<div className="textHeader">
+								<h1> Hello, {tokenServices.getUser().user_name} </h1>
+								<h2> Welcome to IB tracker </h2>
+							</div>
+							<div className="date">{new Date().toString()}</div>
 						</div>
-						<div className="date">{new Date().toString()}</div>
 						
-						</div>
 						<div className="menu">
+						
 							<Link to="/product" style={style}>
 								<div className="menu-items Product">
-									<img src={productIcon} alt="productIcon" />
-									Products
+									<h3> Products </h3>
 								</div>
 							</Link>
 							<Link to="/inventory" style={style}>
 								<div className="menu-items Inventory">
-									<img src={invetoryIcon} alt="inventory" />
-									inventory
+									<h3> inventory </h3>
 								</div>
 							</Link>
-							<Link to="/logs" style={style}>						
+							<Link to="/logs" style={style}>
 								<div className="menu-items logs">
-								<img src={logsIcon} alt="inventory" />
-								 Logs</div>
+								<h3> Logs </h3>
+									
+								</div>
 							</Link>
 							<Link to="/budget" style={style}>
 								<div className="menu-items budget">
-									<img src={budgetIcon} alt="budget" />
-									Budget
+								<h3> Budget </h3>
+									
 								</div>
 							</Link>
 							<Link to="/users" style={style}>
 								<div className="menu-items users">
-									<img src={usersIcon} alt="users" />
-									Users
+								<h3>Users</h3>
+									
 								</div>
 							</Link>
 						</div>

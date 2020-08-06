@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import spinner from '../../assets/spinner.gif';
 import userIcon from '../../assets/hiclipart.com.png';
+import loginIcon from '../../assets/undraw_unlock_24mb.png'
 import tokenServices from '../../services/tokenServices';
 import config from '../../config';
 
@@ -49,10 +50,11 @@ class loginFrom extends React.Component {
 		return (
 			<div className="login">
 				<div className="loginArt">
-					<h1>IB tracker </h1>
-					<h2> Manage your inventory and more </h2>
+				
 				</div>
 				<div className="loginFrom">
+				<h1> Ib Tracker </h1>
+				<h3>Manage your Inventory</h3>
 					<form
 						onSubmit={(e) => {
 							this.setState({pending:true})
@@ -62,7 +64,7 @@ class loginFrom extends React.Component {
 						}}
 					>
 				
-						<img className="userIcon" src={userIcon} alt="user" />
+						<img className="userIcon" src={loginIcon} alt="user" />
 						<div className="input-icons">
 						<label htmlFor="" className="errorLabel" >{this.state.error}</label>
 						{
