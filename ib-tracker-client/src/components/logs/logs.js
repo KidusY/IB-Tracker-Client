@@ -12,7 +12,8 @@ class logs extends React.Component {
 		super();
 		this.state = {
 			logs: [],
-			error: ''
+			error: '',
+			pending: true
 		};
 	}
 	componentDidMount() {
@@ -23,8 +24,9 @@ class logs extends React.Component {
 				}
 			})
 			.then((res) => {
-				this.setState({ logs: res.data });
-			});
+				this.setState({ logs: res.data, pending: false });
+			})
+			.catch((err) => this.setState({ error: err.response.data, pending: false }));
 	}
 
 	render() {
@@ -34,26 +36,26 @@ class logs extends React.Component {
 				<Header searchForProduct={this.searchForProduct} location={this.props.location.pathname} />
 				<div className="filler" />
 				<div className="main">
-				
 					<div className="collection">
-						{this.state.logs.length === 0 ? (
+						{this.state.pending ? (
 							<img className="loadingSpinner" src={spinner} alt="spinner" />
 						) : (
 							<table className="table">
-								<thead>
-									<tr className="inventory tableHeader">
-										<th className="col">User</th>
-										<th className="col">Actions</th>
-										<th className="col">Qty</th>
-										<th className="col">Price</th>
-										<th className="col">Product Id</th>
-										<th className="col unImportant">Date</th>
-									</tr>
-								</thead>
-                                <tbody>
-                                {this.state.logs.map((log, i) => <Log log={log} key={i} />)}
-                                </tbody>
-								
+								{this.state.error ? (
+								<tr> 	<h1> Something Went Horribly Wrong </h1> </tr>
+								) : (
+									<thead>
+										<tr className="inventory tableHeader">
+											<th className="col">User</th>
+											<th className="col">Actions</th>
+											<th className="col">Qty</th>
+											<th className="col">Price</th>
+											<th className="col">Product Id</th>
+											<th className="col unImportant">Date</th>
+										</tr>
+									</thead>
+								)}
+								<tbody>{this.state.logs.map((log, i) => <Log log={log} key={i} />)}</tbody>
 							</table>
 						)}
 					</div>
@@ -62,5 +64,8 @@ class logs extends React.Component {
 		);
 	}
 }
+
+
+
 
 export default logs;

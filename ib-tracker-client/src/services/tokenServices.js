@@ -4,10 +4,11 @@ const TokenService = {
   saveAuthToken(token) {
     window.localStorage.setItem(config.TOKEN_KEY, token)
   },
-  saveUser(user,userId,profilePic='') {
+  saveUser(user,userId,profilePic='',isAdmin) {
     window.localStorage.setItem(config.USER, user)
     window.localStorage.setItem(config.USERID, userId)
     window.localStorage.setItem(config.PROFILEPIC, profilePic)
+    window.localStorage.setItem(config.ISADMIN,isAdmin)
 
   },
   
@@ -16,6 +17,7 @@ const TokenService = {
       user_name: window.localStorage.getItem(config.USER),
       userId: window.localStorage.getItem(config.USERID),
       profilePic: window.localStorage.getItem(config.PROFILEPIC),
+      isAdmin:window.localStorage.getItem(config.ISADMIN)
     } 
   },
   getAuthToken() {

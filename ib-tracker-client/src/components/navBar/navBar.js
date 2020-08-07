@@ -7,17 +7,23 @@ import budgetIcon from '../../assets/budget.png';
 import inventoryIcon from '../../assets/inventory.png';
 import productsIcon from '../../assets/products.png';
 import logsIcon from '../../assets/logs.png';
+import maleAvatar from '../../assets/undraw_male_avatar_323b.png';
 import $ from 'jquery';
 import './navBar-style.css';
 
 const navBar = (props) => {
+	let isAdmin = false;
+	if (tokenServices.getUser().isAdmin === 'true') {
+		isAdmin = true;
+	}
 	const handleMenuBar = () => {
 		$('#navBar').toggle();
 	};
 	let userPic = tokenServices.getUser().profilePic;
 	if (!userPic) {
-		userPic = 'https://i.imgur.com/4ePrUDp.png';
+		userPic = maleAvatar;
 	}
+	console.log(isAdmin);
 	return (
 		<IbContext.Consumer>
 			{(context) => (
@@ -91,24 +97,37 @@ const navBar = (props) => {
 										<img src={inventoryIcon} alt="Inventory" />Inventory
 									</li>
 								</Link>
-								<Link to="/logs" style={{ textDecoration: 'none', color: 'grey', fontWeight: 'bold' }}>
-									<li>
-										<img src={logsIcon} alt="Logs" />Logs
-									</li>
-								</Link>
-								<Link
-									to="/budget"
-									style={{ textDecoration: 'none', color: 'grey', fontWeight: 'bold' }}
-								>
-									<li>
-										<img src={budgetIcon} alt="Budget" />Budget
-									</li>
-								</Link>
-								<Link to="/users" style={{ textDecoration: 'none', color: 'grey', fontWeight: 'bold' }}>
-									<li>
-										<i className="material-icons">supervisor_account</i>users
-									</li>
-								</Link>
+								{isAdmin ? (
+									<div>
+										<Link
+											to="/logs"
+											style={{ textDecoration: 'none', color: 'grey', fontWeight: 'bold' }}
+										>
+											<li>
+												<img src={logsIcon} alt="Logs" />Logs
+											</li>
+										</Link>
+
+										<Link
+											to="/budget"
+											style={{ textDecoration: 'none', color: 'grey', fontWeight: 'bold' }}
+										>
+											<li>
+												<img src={budgetIcon} alt="Budget" />Budget
+											</li>
+										</Link>
+										<Link
+											to="/users"
+											style={{ textDecoration: 'none', color: 'grey', fontWeight: 'bold' }}
+										>
+											<li>
+												<i className="material-icons">supervisor_account</i>users
+											</li>
+										</Link>
+									</div>
+								) : (
+									<div />
+								)}
 							</ul>
 						</div>
 					</nav>

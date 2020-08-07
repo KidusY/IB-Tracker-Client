@@ -8,7 +8,7 @@
     box-shadow: 2px 2px 2px 2px #aaaaaa;
 }
 .product h4 {
-color: #00695c;
+color: #15427e;
 }
 .product p {
 	margin: 5px auto;
@@ -31,7 +31,7 @@ color: #00695c;
 }
 #add-Btn i{
     font-size: 40px;
-    color: rgb(37, 146, 37);
+    color: rgb(37, 88, 146);
 }
 #delete-Btn i{
     font-size: 40px;

@@ -28,40 +28,49 @@ class singleInventory extends React.Component {
 					</td>
 					<td className="col">
 						<button id="remove" onClick={() => this.setState({ showRemoveQTY: !this.state.showRemoveQTY })}>
-						<i className="material-icons">remove_circle_outline</i>
+							<i className="material-icons">remove_circle_outline</i>
 						</button>
 					</td>
 				</tr>
 
 				{this.state.showRemoveQTY ? (
 					<tr className="qtyInput">
-					<label id="qtyError">{this.state.error}</label>
-						<input name="quanityTobeRemoved" id="qtyRemoved" placeholder="Remove QTY" />
-						<button
-							class="confirm"
-							onClick={(e) => {
-								e.preventDefault();
-								const qtyRemoved = document.querySelector('#qtyRemoved');
+						<td>
+							<label id="qtyError">{this.state.error}</label>
+							<input name="quanityTobeRemoved" id="qtyRemoved" placeholder="Remove QTY" />
+							<button
+								className="confirm"
+								onClick={(e) => {
+									e.preventDefault();
+									const qtyRemoved = document.querySelector('#qtyRemoved');
 
-								if (this.props.handleDeletingInventory(inventory, qtyRemoved.value, this.props.index)) {
-									this.setState({error:null})
-									this.setState({ showRemoveQTY: false });
-
-								}else{
-									this.setState({error:"Quantity Exceeds"})
-								}
-							}}
-						>
-							Confrim
-						</button>
+									if (
+										this.props.handleDeletingInventory(
+											inventory,
+											qtyRemoved.value,
+											this.props.index
+										)
+									) {
+										this.setState({ error: null });
+										this.setState({ showRemoveQTY: false });
+									} else {
+										this.setState({ error: 'Quantity Exceeds' });
+									}
+								}}
+							>
+								Confrim
+							</button>
+						</td>
 					</tr>
 				) : (
 					<tr />
 				)}
 				{this.state.showSoldQTY ? (
 					<tr className="qtyInput">
-						<input name="quanityTobeSold" id="qtyRemoved" placeholder="Sold QTY" />
-						<button className="confirm">Confrim</button>
+						<td>
+							<input name="quanityTobeSold" id="qtyRemoved" placeholder="Sold QTY" />
+							<button className="confirm">Confrim</button>
+						</td>
 					</tr>
 				) : (
 					<tr />

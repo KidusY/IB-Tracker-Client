@@ -46,7 +46,7 @@ class inventory extends React.Component {
 						user_name: `${tokenServices.getUser().user_name}`
 					});
 				});
-				return true;
+			return true;
 		}
 
 		return false;
@@ -68,10 +68,8 @@ class inventory extends React.Component {
 			<div className="container">
 				<NavBar />
 				<Header location={this.props.location.pathname} />
-				<div className="filler"/>
+				<div className="filler" />
 				<div className="main">
-					
-
 					<div className="collection">
 						<table className="table">
 							<thead>
@@ -86,6 +84,7 @@ class inventory extends React.Component {
 									<th className="col">{''} </th>
 								</tr>
 							</thead>
+
 							{this.state.inventory.length === 0 ? (
 								<img className="loadingSpinner" src={spinner} alt="spinner" />
 							) : (

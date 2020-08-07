@@ -4,5 +4,6 @@ export default {
 	TOKEN_KEY: 'Ib-Tracker-client-auth-token',
 	USER:"User",
 	USERID:"UserId",
-	PROFILEPIC:"ProfilePic"
+	PROFILEPIC:"ProfilePic",
+	ISADMIN:"isAdmin"
 };
