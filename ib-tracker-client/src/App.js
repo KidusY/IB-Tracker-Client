@@ -9,6 +9,7 @@ import Inventory from './components/inventory/inventory';
 import Product from './components/products/products';
 import tokenServices from './services/tokenServices';
 import Users from './components/users/users';
+import Budget from './components/budget/budget';
 import config from './config';
 import IbContext from './context';
 import './App.css';
@@ -89,6 +90,10 @@ class App extends React.Component {
 							<Route
 								path="/users"
 								component={(props) => <Users {...props} setLoading={this.setLoading} />}
+							/>
+							<Route
+								path="/budget"
+								component={(props) => <Budget {...props} setLoading={this.setLoading} />}
 							/>
 						</div>
 					) : (

@@ -17,10 +17,7 @@ class inventory extends React.Component {
 			inventory: []
 		};
 	}
-	handleDeletingInventory = (inventory, qtyRemoved, index) => {
-		console.log(index);
-		console.log(Number(this.state.inventory[index].quantity));
-		console.log(Number(qtyRemoved));
+	handleDeletingInventory = (inventory, qtyRemoved, index, price) => {
 		if (
 			Number(this.state.inventory[index].quantity) > Number(qtyRemoved) ||
 			Number(this.state.inventory[index].quantity) === Number(qtyRemoved)
@@ -38,12 +35,13 @@ class inventory extends React.Component {
 						Authorization: `bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}`
 					}
 				})
-				.then((res) => {
-					console.log(res);
+				.then(() => {
 					IbServices.postLog({
 						actions: `Removed Inventory`,
 						quantity: Number(qtyRemoved),
-						user_name: `${tokenServices.getUser().user_name}`
+						price: `-${Number(price) * Number(qtyRemoved)}`,
+						user_name: `${tokenServices.getUser().user_name}`,
+						productid: inventory.productid
 					});
 				});
 			return true;
@@ -51,6 +49,39 @@ class inventory extends React.Component {
 
 		return false;
 	};
+	handleSellingInventory = (inventory, qtySold, index, price) => {
+		if (
+			Number(this.state.inventory[index].quantity) > Number(qtySold) ||
+			Number(this.state.inventory[index].quantity) === Number(qtySold)
+		) {
+			const newInventory = this.state.inventory;
+			newInventory[index].quantity = Number(newInventory[index].quantity) - Number(qtySold);
+			this.setState({ inventory: newInventory });
+
+			axios
+				.delete(`${config.API_ENDPOINT}/api/inventory/${inventory.inventoryid}`, {
+					data: {
+						quantity: qtySold
+					},
+					headers: {
+						Authorization: `bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}`
+					}
+				})
+				.then(() => {
+					IbServices.postLog({
+						actions: `Sold Inventory`,
+						quantity: Number(qtySold),
+						price: Number(price) * Number(qtySold),
+						user_name: `${tokenServices.getUser().user_name}`,
+						productid: inventory.productid
+					});
+				});
+			return true;
+		}
+
+		return false;
+	};
+
 	componentDidMount() {
 		axios
 			.get(`${config.API_ENDPOINT}/api/inventory/`, {
@@ -96,6 +127,7 @@ class inventory extends React.Component {
 												key={i}
 												index={i}
 												handleDeletingInventory={this.handleDeletingInventory}
+												handleSellingInventory={this.handleSellingInventory}
 											/>
 										);
 									}

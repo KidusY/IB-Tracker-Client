@@ -42,7 +42,7 @@ class product extends React.Component {
 					actions: 'Added Inventory',
 					user_name: `${tokenService.getUser().user_name}`,
 					productid: inventory.productid,
-					price:this.props.productInfo.price,
+					price:Number(this.props.productInfo.price) *Number(inventory.quantity),
 					quantity: inventory.quantity
 				})
 			);

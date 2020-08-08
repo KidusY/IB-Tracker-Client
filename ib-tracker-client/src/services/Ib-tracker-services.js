@@ -20,7 +20,7 @@ const services = {
 		return users;
 	},
 	async postLog(logInfo) {
-	console.log(tokenServices.getAuthToken(config.TOKEN_KEY));
+
 		const log =	await axios.post(`${config.API_ENDPOINT}/api/logs`,logInfo, {
 				headers: {
 					Authorization: `bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}`

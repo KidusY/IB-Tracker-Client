@@ -127,6 +127,7 @@ class users extends React.Component {
 								};
 
 								this.createUser(userInfo);
+								this.handleAddUserModal()
 							}}
 						>
 							<label className="close" onClick={() => this.handleAddUserModal()}>
@@ -170,6 +171,7 @@ class users extends React.Component {
 								this.updateUser(userInfo);
 
 								this.setState({ editForm: false });
+								this.showEditUserForm()
 							}}
 						>
 							<label className="close" onClick={() => this.showEditUserForm()}>

@@ -1,16 +1,29 @@
 import React from 'react';
-
-import Ibcontext from '../../context';
+import config from '../../config'
+import tokenServices from '../../services/tokenServices';
+import axios from 'axios';
 import './single_inventory-style.css';
 class singleInventory extends React.Component {
 	state = {
 		showRemoveQTY: false,
 		showSoldQTY: false,
-		error: null
+		error: null,
+		price:null
+		
 	};
+	componentDidMount (){
+		const {inventory} = this.props		
+		return	axios.get(`${config.API_ENDPOINT}/api/product/${inventory.productid}`,{
+			headers: {
+				Authorization: `bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}`
+			}
+		
+		}).then(res=>this.setState({price:res.data.price}))
+	}
 
 	render() {
-		const { inventory } = this.props;
+		const { inventory } = this.props;		
+		
 		return (
 			<tbody>
 				<tr className="inventory">
@@ -48,7 +61,8 @@ class singleInventory extends React.Component {
 										this.props.handleDeletingInventory(
 											inventory,
 											qtyRemoved.value,
-											this.props.index
+											this.props.index,
+											this.state.price
 										)
 									) {
 										this.setState({ error: null });
@@ -68,8 +82,31 @@ class singleInventory extends React.Component {
 				{this.state.showSoldQTY ? (
 					<tr className="qtyInput">
 						<td>
-							<input name="quanityTobeSold" id="qtyRemoved" placeholder="Sold QTY" />
-							<button className="confirm">Confrim</button>
+						<label id="qtyError">{this.state.error}</label>
+							<input name="quanityTobeSold" id="qtySold" placeholder="Sold QTY" />
+							<button
+								className="confirm"
+								onClick={(e) => {
+									e.preventDefault();
+									const qtySold = document.querySelector('#qtySold');
+
+									if (
+										this.props.handleSellingInventory(
+											inventory,
+											qtySold.value,
+											this.props.index,
+											this.state.price
+										)
+									) {
+										this.setState({ error: null });
+										this.setState({ showSoldQTY: false });
+									} else {
+										this.setState({ error: 'Quantity Exceeds' });
+									}
+								}}
+							>
+								Confrim
+							</button>
 						</td>
 					</tr>
 				) : (

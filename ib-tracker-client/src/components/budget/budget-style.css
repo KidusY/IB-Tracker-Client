@@ -1,0 +1,113 @@
+.budgetContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 100px auto;
+    height: auto;
+    width: 90%;
+    height: 100vh;
+    background-color: rgb(245, 245, 245);
+    
+}
+.col-1{
+    display: block;
+}
+.doughnutChart{
+    background-color: white;
+    box-shadow: 2px 2px 2px #111111;
+    margin: 10px;
+    height: 300px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.income, .loss , .Spent{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: white;
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 2px 2px 2px #111111;
+    border-radius: 10px;
+    text-align: center;
+}
+.income span{
+    margin: 10px;
+}
+
+.barChart{
+    background-color: white;
+    box-shadow: 2px 2px 2px #111111;
+    margin: 10px;
+    height: 500px;
+    padding: 10px;
+    border-radius: 10px; 
+}
+.incomePredictor{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    padding:10px;
+    padding-top:60px ;
+    box-shadow: 2px 2px 2px #111111;
+    border-radius: 10px; 
+    margin: 10px;
+}
+.incomePredictor div{
+    display: block;
+}
+.Arrows{
+    display: block;
+    margin:70px 0 ;
+}
+.upArrow:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.downArrow:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.savingCalculator{
+    width: 300px;
+    height: 340px;
+    box-shadow: 2px 2px 2px #111111;
+    border-radius:10px ;
+    background: white;
+    margin: 10px;
+}
+.savingCalculator .head{
+    width: 100%;
+    height: 150px;
+    background: url("../../assets/undraw_Savings_dwkw.png");
+    background-position: center;
+    background-size: cover;
+    border-radius:20px ;
+    text-align: center;
+    
+}
+.savingCalculator input{
+    display: block;
+    margin: 10px auto;
+    padding:7px;
+    border-radius: 10px;    
+    border:1px solid #47474786 ;
+    font-size:20px ;
+    outline: none;
+}
+
+.savingCalculator button{
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color:#303f9f ;
+    border: none;
+    color:white;
+    border-radius: 10px;
+    cursor: pointer;
+}

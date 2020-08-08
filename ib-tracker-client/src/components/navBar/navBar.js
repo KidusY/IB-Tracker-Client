@@ -23,7 +23,7 @@ const navBar = (props) => {
 	if (!userPic) {
 		userPic = maleAvatar;
 	}
-	console.log(isAdmin);
+
 	return (
 		<IbContext.Consumer>
 			{(context) => (
