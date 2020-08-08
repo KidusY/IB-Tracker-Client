@@ -38,7 +38,7 @@ label {
     color: red;
 
 }
-.loginFrom h1, h3 {
+.loginFrom h1, .loginFrom h3 {
 display: none;
 }
 .input-icons {
@@ -157,7 +157,7 @@ background-color: #283593;
     .loginFrom h1{
             margin-top:200px
     }
-    .loginFrom h1, h3{
+    .loginFrom h1, .loginFrom h3{
         display: block;
         text-align: center;
        

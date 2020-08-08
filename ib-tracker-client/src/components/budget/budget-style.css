@@ -11,11 +11,11 @@
 }
 .col-1{
     display: block;
-    width: 100%;
+
 }
 .doughnutChart{
     
-    width: 90%;
+
     background-color: white;
     box-shadow: 2px 2px 2px #111111;
     margin: 10px auto;
@@ -23,10 +23,8 @@
     padding: 10px;
     border-radius: 10px;
 }
-.doughnutChart canvas{
-    width: 80%;
-}
-.income, .loss , .Spent{
+
+.income, .loss , .Spent, .availableToSpend{
     display: flex;
     justify-content: space-evenly;
     background-color: white;
@@ -116,4 +114,17 @@
     color:white;
     border-radius: 10px;
     cursor: pointer;
+    outline: none;
+}
+.availableToSpend{
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: space-evenly;
+}
+.availableToSpend img{
+   position: relative;
+   top:10px
+}
+.availableToSpend h2{
+    width: 100%;
 }

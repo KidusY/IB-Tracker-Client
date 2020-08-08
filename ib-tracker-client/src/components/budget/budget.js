@@ -13,11 +13,11 @@ class budget extends React.Component {
 		this.state = {
 			dougnutChartData: [
 				{
-					labels: [ 'Income', 'Loss', 'Spent', 'Profit','Saving' ],
+					labels: [ 'Income', 'Loss', 'Spent', 'Profit', 'Saving' ],
 					datasets: [
 						{
 							label: 'Budget',
-							data: [ 0, 0, 0, 0,0 ],
+							data: [ 0, 0, 0, 0, 0 ],
 
 							backgroundColor: [
 								'rgba(40, 53, 147,0.9)',
@@ -43,12 +43,14 @@ class budget extends React.Component {
 					}
 				]
 			},
+			chartData: [],
 
 			error: '',
 			pending: true,
 			currentIncome: '',
 			currentLoss: '',
-			currentSpending: ''
+			currentSpending: '',
+			availableToSpend:0
 		};
 	}
 	componentDidMount() {
@@ -96,9 +98,9 @@ class budget extends React.Component {
 
 		newData[3] = newData[0] - (newData[1] + newData[2]);
 		copiedData[0].datasets[0].data = newData;
-
+		console.log(copiedData);
 		this.setState({
-			chartData: copiedData,
+			chartData: newData,
 			currentIncome: newData[0],
 			currentLoss: newData[1],
 			currentSpending: newData[2]
@@ -107,22 +109,49 @@ class budget extends React.Component {
 
 	handleUpArrowAction = () => {
 		let copiedData = [];
-		this.state.dougnutChartData.map((data) => copiedData.push(data));
-		copiedData[0].datasets[0].data[0]++;
-
-		this.setState({ dougnutChartData: copiedData, currentIncome: this.state.currentIncome + 1 });
+		this.state.chartData.map((data) => copiedData.push(data));
+		copiedData[0] = copiedData[0] + 100;
+		this.setState({ chartData: copiedData, currentIncome: this.state.currentIncome + 100 });
 	};
 	handleUpDownAction = () => {
 		let copiedData = [];
-		this.state.dougnutChartData.map((data) => copiedData.push(data));
-		copiedData[0].datasets[0].data[0]--;
+		this.state.chartData.map((data) => copiedData.push(data));
+		copiedData[0] = copiedData[0] - 100;
+		this.setState({ chartData: copiedData, currentIncome: this.state.currentIncome - 100 });
+	};
+	calculateSaving = (saving) => {
+		const chartData = this.state.chartData.map(data=>data);
 
-		this.setState({ dougnutChartData: copiedData, currentIncome: this.state.currentIncome - 1 });
-    };
-    calculateSaving = () =>{
-
-    }
+		const profit = this.state.chartData[3];
+		let spending = 0;
+		if(profit - saving > 0){
+			this.setState({error:''})	
+			spending = profit - saving
+		}
+		else{
+			saving = 0;
+		 this.setState({error:'Not enough Funds'})	
+		}
+		chartData[4] = saving
+		this.setState({availableToSpend:spending,chartData:chartData})
+	};
 	render() {
+		let dougnutBarData = {
+			labels: [ 'Income', 'Loss', 'Spent', 'Profit', 'Saving' ],
+			datasets: [
+				{
+					label: 'Budget',
+					data: this.state.chartData,
+
+					backgroundColor: [
+						'rgba(40, 53, 147,0.9)',
+						'rgba(198, 40, 40,0.9)',
+						'rgba(0, 105, 92,0.9)',
+						'rgba(85, 139, 47,0.9)'
+					]
+				}
+			]
+		};
 		return (
 			<div className="container">
 				<NavBar />
@@ -133,10 +162,10 @@ class budget extends React.Component {
 						<div className="col-1">
 							<div className="doughnutChart">
 								<Doughnut
-									data={this.state.dougnutChartData[0]}
+									data={dougnutBarData}
 									width={300}
 									height={300}
-									options={{ maintainAspectRatio: true }}
+									options={{ maintainAspectRatio: false }}
 								/>
 							</div>
 							<div className="income">
@@ -144,8 +173,7 @@ class budget extends React.Component {
 								<div>
 									<span> Income </span> <br />
 									<span style={{ color: '#283593', fontSize: '20px', fontWeight: 'bolder' }}>
-										{' '}
-										$ {this.state.currentIncome}
+										$ {Math.round((Number(this.state.currentIncome) + Number.EPSILON) * 100) / 100}
 									</span>
 								</div>
 							</div>
@@ -178,6 +206,10 @@ class budget extends React.Component {
 									options={{ maintainAspectRatio: false }}
 								/>
 							</div>
+							<div className="availableToSpend">	
+								<h2> Available To Spend </h2> <br/>
+								<h1><img  src="https://img.icons8.com/nolan/64/albanian-lek.png" width="40px" alt="availableToSpend" /> $ {this.state.availableToSpend} </h1>
+							 </div>
 						</div>
 						<div className="col-3">
 							<div className="incomePredictor">
@@ -185,7 +217,10 @@ class budget extends React.Component {
 									<img src="https://img.icons8.com/nolan/64/receive-euro.png" alt="income" />
 									<h3> What if </h3>
 									<h2>Income </h2>
-									<h1><i className="material-icons">attach_money</i> {this.state.currentIncome} </h1>
+									<h1>
+										<i className="material-icons">attach_money</i>{' '}
+										{Math.round((Number(this.state.currentIncome) + Number.EPSILON) * 100) / 100}
+									</h1>
 								</div>
 								<div className="Arrows">
 									<img
@@ -207,16 +242,16 @@ class budget extends React.Component {
 									/>
 								</div>
 							</div>
-                            <div className="savingCalculator">
-                                <div className="head">
-                                    <h1>Saving</h1>
-                                </div>
-                                <h3> I want to save </h3>
-                                <input defaultValue={0}/>
-                                <button onClick={()=>this.calculateSaving()}>Calculate</button>
-                            </div>
-                    
-                    	</div>
+							<div className="savingCalculator">
+								<div className="head">
+									<h1>Saving</h1>
+								</div>
+								<h3 style={{textAlign:"center",padding:'5px'}}> I want to save </h3>
+								<label style={{color:"red"}}> {this.state.error} </label>
+								<input defaultValue={0} id="savingInput" />
+								<button onClick={() => this.calculateSaving(document.getElementById('savingInput').value)}>Calculate</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
