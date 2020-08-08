@@ -136,7 +136,7 @@ class budget extends React.Component {
 									data={this.state.dougnutChartData[0]}
 									width={300}
 									height={300}
-									options={{ maintainAspectRatio: false }}
+									options={{ maintainAspectRatio: true }}
 								/>
 							</div>
 							<div className="income">

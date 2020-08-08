@@ -11,14 +11,20 @@
 }
 .col-1{
     display: block;
+    width: 100%;
 }
 .doughnutChart{
+    
+    width: 90%;
     background-color: white;
     box-shadow: 2px 2px 2px #111111;
-    margin: 10px;
+    margin: 10px auto;
     height: 300px;
     padding: 10px;
     border-radius: 10px;
+}
+.doughnutChart canvas{
+    width: 80%;
 }
 .income, .loss , .Spent{
     display: flex;
