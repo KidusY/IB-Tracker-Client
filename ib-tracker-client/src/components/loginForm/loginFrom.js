@@ -55,6 +55,7 @@ class loginFrom extends React.Component {
 				<div className="loginFrom">
 				<h1> Ib Tracker </h1>
 				<h3>Manage your Inventory</h3>
+				<p> Use admin for both the password and username to login </p>
 					<form
 						onSubmit={(e) => {
 							this.setState({pending:true})
