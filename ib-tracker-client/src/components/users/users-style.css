@@ -102,12 +102,24 @@
         background: rgb(255, 255, 255);
         box-shadow: 10px 10px 7px rgba(95, 95, 95, 0.849);
     }
+    .loadingSpinner{     
+        left:37%;
+        z-index: 3000;
+        
+    }
 
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
 }
+@media (width: 1024px) {
+    .userForm{
+        left: 30%;
+    }
+}
+
+
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {

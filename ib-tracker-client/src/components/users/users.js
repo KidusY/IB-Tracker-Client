@@ -51,7 +51,7 @@ class users extends React.Component {
 		axios
 			.put(`${config.API_ENDPOINT}/api/users/${this.state.currentUserInfo.id}`, userInfo, {
 				headers: {
-					Authorization: tokenServices.getAuthToken()
+					Authorization: `bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}`
 				}
 			})
 			.then(() =>
@@ -65,14 +65,16 @@ class users extends React.Component {
 
 	createUser = (userInfo) => {
 		this.setState({ error: '' });
+		console.log(tokenServices.getAuthToken(config.TOKEN_KEY));
+
 		axios
 			.post(`${config.API_ENDPOINT}/api/users`, userInfo, {
 				headers: {
-					Authorization: tokenServices.getAuthToken(config.TOKEN_KEY)
+					Authorization: `bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}`
 				}
 			})
-			.then(() => this.setState({ addUserForm: false }))
 			.then(() => {
+				this.handleAddUserModal();
 				Ibservices.postLog({
 					actions: `User Created ${userInfo.user_name} `,
 					user_name: `${tokenServices.getUser().user_name}`
@@ -127,7 +129,6 @@ class users extends React.Component {
 								};
 
 								this.createUser(userInfo);
-								this.handleAddUserModal()
 							}}
 						>
 							<label className="close" onClick={() => this.handleAddUserModal()}>
@@ -138,7 +139,7 @@ class users extends React.Component {
 								{this.state.error}
 							</label>
 							<input name="_userName" placeholder="User Name" required />
-							<input name="_password" placeholder="Password" required />
+							<input type="password" name="_password" placeholder="Password" required />
 							<input name="_fullName" placeholder="Full Name" required />
 							<input name="_nickName" placeholder="Nick Name" />
 							<input name="_imageLink" placeholder="Image Link" />
@@ -171,7 +172,7 @@ class users extends React.Component {
 								this.updateUser(userInfo);
 
 								this.setState({ editForm: false });
-								this.showEditUserForm()
+								this.showEditUserForm();
 							}}
 						>
 							<label className="close" onClick={() => this.showEditUserForm()}>
