@@ -3,7 +3,7 @@ import tokenServices from '../../services/tokenServices';
 import './addInventory-style.css';
 
 const Addinventory = ({ handleAddInventoryForm, addInventory, productId, _title }) => {
-	console.log(_title);
+	
 	return (
 		<div>
 			<form

@@ -30,7 +30,7 @@ class product extends React.Component {
 		this.setState({ inventoryFrom: !this.state.inventoryFrom });
 	};
 	addInventory = (inventory) => {
-		console.log(inventory);
+		
 		axios
 			.post(`${config.API_ENDPOINT}/api/inventory/`, inventory, {
 				headers: {

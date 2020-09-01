@@ -94,7 +94,7 @@ class inventory extends React.Component {
 			});
 	}
 	render() {
-		console.log();
+		
 		return (
 			<div className="container">
 				<NavBar />

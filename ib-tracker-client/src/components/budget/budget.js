@@ -98,7 +98,7 @@ class budget extends React.Component {
 
 		newData[3] = newData[0] - (newData[1] + newData[2]);
 		copiedData[0].datasets[0].data = newData;
-		console.log(copiedData);
+		
 		this.setState({
 			chartData: newData,
 			currentIncome: newData[0],

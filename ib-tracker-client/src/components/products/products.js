@@ -63,7 +63,7 @@ class products extends React.Component {
 				}
 			})
 			.then((res) => {
-				console.log(res.data);
+			
 				return service.postLog({
 					actions: `Added New Product`,
 					quantity: 1,

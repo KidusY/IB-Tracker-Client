@@ -65,7 +65,7 @@ class users extends React.Component {
 
 	createUser = (userInfo) => {
 		this.setState({ error: '' });
-		console.log(tokenServices.getAuthToken(config.TOKEN_KEY));
+	
 
 		axios
 			.post(`${config.API_ENDPOINT}/api/users`, userInfo, {
@@ -81,7 +81,7 @@ class users extends React.Component {
 				});
 			})
 			.catch((err) => {
-				console.log(err.response.data);
+				
 				if (err.response.data) return this.setState({ error: err.response.data.error });
 			});
 	};
