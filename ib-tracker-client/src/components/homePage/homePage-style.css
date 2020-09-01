@@ -1,13 +1,12 @@
-.homePage{
+.homePage {
 	width: 97%;
 	margin: 0 auto;
 	height: auto;
 	background: url("../../assets/homepageBackground-color.jpg");
-	
+
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-
 
 .homePageHeader {
 	display: flex;
@@ -19,17 +18,17 @@
 
 .homePageHeader h1 {
 	font-size: 40px;
+	margin-top: 15px;
 	margin-left: 20px;
 }
 .homePageHeader h2 {
 	width: 100%;
-	margin-left: 10px !important;
 	color: #283593 !important;
 	font-weight: 400;
 	transform: translateY(5px) !important;
 }
-.textHeader{
-	margin-top:0 ;
+.textHeader {
+	margin-top: 0;
 	height: 30px;
 }
 
@@ -41,13 +40,14 @@
 .menu {
 	display: flex;
 	width: 80%;
+	height: auto;
 	margin: 0 auto;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
 	color: white;
 	font-weight: bold;
 	background-color: rgb(250, 250, 250);
-	box-shadow: 0px 2px 2px  rgba(17, 17, 17, 0.609);
+	box-shadow: 0px 2px 2px rgba(17, 17, 17, 0.609);
 }
 .menu .menu-items {
 	width: 320px;
@@ -70,13 +70,12 @@
 	background-image: url("../../assets/undraw_product_iteration_kjok.png");
 	background-size: cover;
 	background-position: center;
-
 }
 
 .Product h3 {
 	position: relative;
-	top:220px;
-color: black;
+	top: 220px;
+	color: black;
 }
 .Inventory {
 	display: block;
@@ -84,10 +83,10 @@ color: black;
 	background-size: cover;
 	background-position: center;
 }
-.Inventory h3{
+.Inventory h3 {
 	position: relative;
-	top:220px;
-color: black;
+	top: 220px;
+	color: black;
 }
 .logs {
 	display: block;
@@ -95,10 +94,10 @@ color: black;
 	background-size: cover;
 	background-position: center;
 }
-.logs h3{
+.logs h3 {
 	position: relative;
-	top:220px;
-color: black;
+	top: 220px;
+	color: black;
 }
 .budget {
 	display: block;
@@ -108,8 +107,8 @@ color: black;
 }
 .budget h3 {
 	position: relative;
-	top:240px;
-color: black;
+	top: 240px;
+	color: black;
 }
 .users {
 	display: block;
@@ -118,15 +117,14 @@ color: black;
 	background-position: center;
 }
 .users h3 {
-    position: relative;
-	top:250px;
-color: black;
+	position: relative;
+	top: 250px;
+	color: black;
 }
 
 @media (min-width: 320px) {
-	.homePage{
+	.homePage {
 		height: 100vh;
-		
 	}
 	.homePageHeader h2 {
 		margin: 0;
@@ -138,14 +136,23 @@ color: black;
 
 /* Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
+	.menu {
+		box-shadow: none;
+		padding:10px;
+	}
 	.menu .menu-items {
 		width: 220px;
 		height: 210px;
+		margin-top: 50px;
 	}
 	.menu img {
-		margin: 10px auto ;		
+		margin: 10px auto;
 		width: 70%;
 		min-width: 100px;
+	}
+
+	.homePageHeader h1 {
+		margin-left: 0px;
 	}
 }
 
@@ -155,5 +162,4 @@ color: black;
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-	
 }

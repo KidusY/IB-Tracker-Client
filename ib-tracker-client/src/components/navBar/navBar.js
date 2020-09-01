@@ -27,7 +27,7 @@ const navBar = (props) => {
 	return (
 		<IbContext.Consumer>
 			{(context) => (
-				<div>
+				<div className="navBarComponent" style={{width:'0px'}}>
 					<div id="navBarIcon" onClick={() => handleMenuBar()}>
 						<i className="material-icons">menu</i>{' '}
 					</div>

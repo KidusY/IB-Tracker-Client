@@ -1,10 +1,14 @@
 .landingPage {
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 6rem;
 }
 .landingPage header {
 	width: 100%;
-	display: flex;
-    
-    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+	margin: 0 auto;
 }
 
 .heroImg img {
@@ -17,7 +21,8 @@
 	font-weight: bolder;
 }
 .landingPage #btn-login {
-	margin: 30px 50px;
+    margin: 30px 15px;
+    
 	padding: 5px 20px;
 	width: 80px;
 	height: 40px;
@@ -30,18 +35,18 @@
 	box-shadow: 2px 2px 2px 1px rgba(255, 255, 255, 0.376);
 }
 .landingPage #btn-login:hover {
-    background: #4658cc;
+	background: #4658cc;
 }
 .landingPage .heroText {
 	margin-top: 70px;
 	color: #303f9f;
 }
 .card {
-    display: flex;
-    flex-wrap: wrap;
+	display: flex;
+	flex-wrap: wrap;
 	background-color: #f8f8f8;
-    margin: 100px auto;
-    width: 80%;
+	margin: 100px auto;
+	width: 80%;
 	padding: 10px;
 	border-radius: 10px;
 	box-shadow: 2px 2px 2px rgba(17, 17, 17, 0.301);
@@ -52,62 +57,67 @@
 }
 .purple img {
 	border-radius: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
 	background-color: white;
 }
 
 .card img {
 	width: 30%;
 }
-.secondSection{
-    display: flex;
-    width: 100%;
-   
-    background: url("../../assets//background\ 2.jpg");
+.secondSection {
+	display: flex;
+	width: 100%;
+	min-height: 100vh;
+	height: auto;
+	background: url("../../assets//background\ 2.jpg");
     background-repeat: no-repeat;
-}
-.secondSectionText{
-    width: 70%;
-    height: 200px;
-    padding: 30px;
-    margin-left: 10px;
-    transform:translateY(120px)  ;
-    color: white;
-}
-.secondSectionText h3{
-    font-size: 30px;
-}
-.secondSectionText h5{
-    text-align: center;
-    font-size: 30px;
-}
-.secondSectionText ul{
-    margin: 20px auto;
-    display: block;
-    width: 50%;
-    font-weight: 500;
-}
-.secondSectionImg{
-    width: 30%;  
-    margin: 0 auto; 
-    height: 300px;
-    
-}
-.secondSectionImg img{
-    width: 100%;
    
-    display: block;
-    border-radius: 100%;
-    margin: 0 auto;
-    margin-top: 150px;
 }
-footer{
-    margin-top: 100px;
-    left: 25%;
-  
-    bottom: 10px;
-    font-size: 20px;
-    text-align: center;
+.secondSectionText {
+	width: 70%;
+	height: 200px;
+	padding: 30px;
+	margin-left: 10px;
+	transform: translateY(120px);
+	color: white;
+}
+.secondSectionText h3 {
+	font-size: 30px;
+	text-align: left !important;
+}
+.secondSectionText h5 {
+	text-align: center;
+	font-size: 30px;
+}
+.secondSectionText ul {
+	margin: 20px auto;
+	display: block;
+	width: 50%;
+	font-weight: 500;
+	text-align: left !important;
+}
+.secondSectionImg {
+	width: 30%;
+	margin: 0 auto;
+	height: 300px;
+}
+.secondSectionImg img {
+	width: 100%;
 
+	display: block;
+	border-radius: 100%;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+footer {
+	margin-top: 100px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 3rem;	
+	font-size: 20px;
+	text-align: center;
 }
 
 @media (max-width: 320px) {
@@ -117,97 +127,168 @@ footer{
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-	
+@media (max-width: 768px) {
+    .secondSection {
+        display: flex;
+        flex-wrap:wrap;       
+        width: 100%; 
+        min-height: 110vh;      
+        height: auto;
+        background: url("../../assets//background\ 2.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .secondSectionText {
+        width: 100%;
+        height: 200px;
+        padding: 0px;
+        margin-left: 10px;
+        transform: translateY(150px);
+        color: rgb(236, 236, 236);
+    }
+    .secondSectionText h3 {
+        font-size: 20px;
+        text-align: left !important;
 
+    }
+    .secondSectionText h5 {
+        text-align: left;
+        font-size: 15px;
+        color: rgb(221, 221, 221);
+        font-weight: 500;
+    }
+    .secondSectionText ul {
+        margin: 20px auto;
+        display: block;
+        width: 90%;
+        font-weight: 300;
+        text-align: left !important;
+    }
+    .secondSectionImg{
+        width: 100%;
+    }
+    .secondSectionImg img{
+        width: 70%;
+        max-width: 200px;
+        max-height: auto;
+    }
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .landingPage .logo {
-        margin: 30px 100px;
-    }
-    .landingPage header {
-        justify-content: space-between;
-    }
-    .hero {
+	.landingPage .logo {
+		margin: 30px 100px;
+	}
+	.landingPage header {
+		justify-content: space-between;
+	}
+	.hero {
 		display: flex;
 		width: 80%;
 		justify-content: space-between;
 		margin: 0 auto;
 	}
 	.heroText {
-        width: 50%;
-        margin: 10px;
-    }
-    .heroImg{
-        margin: 10px;
-        width: 50%;
-    }
-    .landingPageInfo{
-        display: flex;
-        width:80%;
-        margin: 0 auto;
+		width: 50%;
+		margin: 10px;
+	}
+	.heroImg {
+		margin: 10px;
+		width: 50%;
+	}
+	.landingPageInfo {
+		display: flex;
+		width: 80%;
+		margin: 0 auto;
 
-        justify-content: center;
-    }
-    .card{
-        width: 300px;
-    
-    }
-    .secondSection{
-        display: flex;        
-        margin: 0px auto;
-        justify-content: space-evenly;
-        width: 100%;
-        height: 80vh;
-        background: url("../../assets//background\ 2.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
-    .secondSectionText{
-        width: 50% !important;
-        margin-left: 20px;
-        height: 300px;
-        padding: 0;
-        transform:translateY(200px)  ;
-        color: white;
-    }
-    .secondSectionText h3{
-        font-size: 30px;
-    }
-    .secondSectionText h5{
-        text-align: center;
-        font-size: 20px;
-    }
-    .secondSectionText ul{
-        margin: 30px auto;
-        width: 40%;
-        text-align: center;
-    }
-    .secondSectionImg{
-        width: 30%;
-       height: 100px;
-        border-radius: 100%;
-        background-color: #ffffff;
-    }
-    .secondSectionImg img{
-        width: 80%;
-        display: block;
-        margin-top: 100px 
-    }
+		justify-content: center;
+	}
+	.card {
+		width: 300px;
+		margin-left: 50px;
+		padding: 20px;
+	}
+	.secondSection {
+		display: flex;
+		margin: 0px auto;
+		justify-content: space-evenly;
+		width: 100%;
+		height: 80vh;
+		background: url("../../assets//background\ 2.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+	.secondSectionText {
+		width: 50% !important;
+		margin-left: 20px;
+		height: 300px;
+		padding: 0;
+		transform: translateY(200px);
+		color: white;
+	}
+	.secondSectionText h3 {
+		font-size: 30px;
+	}
+	.secondSectionText h5 {
+		text-align: left;
+		font-size: 20px;
+		color: rgb(228, 228, 228);
+	}
+	.secondSectionText ul {
+		margin: 30px auto;
+		width: 40%;
+		text-align: center;
+	}
+	.secondSectionImg {
+		width: 30%;
+		height: 100px;
+		border-radius: 100%;
+		background-color: #ffffff;
+	}
+	.secondSectionImg img {
+		width: 80%;
+		display: block;
+		margin-top: 100px;
+	}
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (max-width: 1200px) {
-
 }
 @media (min-width: 1200px) {
-    .landingPageInfo{
-        display: flex;
-        width:50%;
-        margin: 0 auto;
-
-        justify-content: center;
+	.landingPageInfo {
+		display: flex;
+		width: 70%;
+		margin: 0 auto;
+		justify-content: center;
     }
+   
+    .secondSectionText {
+        width: 70%;
+        height: 200px;
+        padding: 30px;
+        margin-left: 10px;
+        transform: translateY(250px);
+        color: white;
+    }
+    .secondSectionText h3 {
+        font-size: 40px;
+        text-align: left !important;
+    }
+    .secondSectionText h5 {
+        text-align: center;
+        font-size: 25px;
+        font-weight: 400;
+        text-align: left;
+    }
+    .secondSectionText ul {
+        margin: 20px auto;
+        display: block;
+        width: 50%;
+        font-weight: 300;
+        font-size: 25px;
+        text-align: left !important;
+    }
+  
+    
 }

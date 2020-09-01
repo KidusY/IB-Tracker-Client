@@ -1,20 +1,27 @@
-#navBarIcon{
-	
-	position: fixed;
-	left:1%;
-	top:20%;	
+#navBarIcon {
+	position: sticky;
+	left: 1%;
+	top: 15%;
 	cursor: pointer;
-	z-index: 1000 ;
-	background-color: rgba(17, 17, 17, 0.15);
+	z-index: 1000;
 	text-align: center;
-
 }
 
-#navBarIcon i{
+#navBarIcon i {
 	display: block;
-	margin: 0 auto;
+	margin: 0px auto;
 	font-size: 40px;
-	text-align: center;
+	text-align: left;
+	background: rgba(231, 231, 231, 0.863);
+	width:41px;
+}
+#navBarIcon .closingIcon {
+	display: block;
+	margin: 0px auto;
+	font-size: 40px;
+	text-align: left;
+	float: left;
+	transform: translate(-15px, -50px);
 }
 nav {
 	height: 100vh;
@@ -43,9 +50,18 @@ nav ul li {
 }
 nav ul li:hover {
 	color: #0b2f94;
+	font-weight: bolder;
 }
 nav ul li img {
 	width: 20px;
+	margin-right: 5px;
+	filter: grayscale(50%);
+	filter: brightness(0.1);
+}
+nav ul li i {
+	margin-right: 5px;
+	filter: grayscale(50%);
+	filter: brightness(0.1);
 }
 #btn-logOut {
 	padding: 7px 15px;
@@ -81,6 +97,9 @@ nav ul li img {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
+	nav {
+		padding-top: 65px;
+	}
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -89,9 +108,7 @@ nav ul li img {
 		margin-top: 10px;
 	}
 	nav ul {
-		
 		margin: 0px auto;
-	
 	}
 	nav ul li {
 		margin: 8px 0;
@@ -101,15 +118,13 @@ nav ul li img {
 	}
 	.profilePic {
 		width: 70px;
-		height: 70px;	
+		height: 70px;
 		margin: 10px auto;
-		
 	}
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-	
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

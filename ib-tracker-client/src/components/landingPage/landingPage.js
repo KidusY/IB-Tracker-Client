@@ -66,7 +66,7 @@ const landingPage = (props) => {
 			
 			<section className="secondSection">
 			<div className="secondSectionText"> 
-				<h3> Ib tracker is an inventory management platform that solves problems for small business. </h3>
+				<h3> Ib tracker is an inventory management platform that solves problems for small businesses. </h3>
 				<h5> Not only it manages your inventory -- it manages your budget</h5>
 					<ul>
 						<li>Control Your inventory</li>
@@ -82,7 +82,7 @@ const landingPage = (props) => {
 
 
 			<footer>
-			© Allrights resvered to IB tracker corp
+			© All rights reserved to IB tracker corp.
 			 </footer>
 			
 			</div>
