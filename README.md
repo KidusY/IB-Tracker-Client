@@ -2,18 +2,24 @@
 ## This the client side for IB Traker project 
 
 
-## landing page
+## Landing page
 ![Image description](https://github.com/KidusY/IB-Tracker-Client/blob/master/screenShots/landing%20page.PNG)
 
 ## HomePage
 ![Image description](https://github.com/KidusY/IB-Tracker-Client/blob/master/screenShots/home.PNG)
 
-## login
+## Login
 ![Image description](https://github.com/KidusY/IB-Tracker-Client/blob/master/screenShots/login.PNG)
 
-## products
+## Products
 ![Image description](https://github.com/KidusY/IB-Tracker-Client/blob/master/screenShots/products.PNG)
 
-## inventory
+## Inventory
 ![Image description](https://github.com/KidusY/IB-Tracker-Client/blob/master/screenShots/inventory.PNG)
+
+## Logs
+![Image description](https://github.com/KidusY/IB-Tracker-Client/blob/master/screenShots/logs.PNG)
+
+## Users
+![Image description](https://github.com/KidusY/IB-Tracker-Client/blob/master/screenShots/users.PNG)
 
