@@ -1,54 +1,59 @@
 .addProductFrom {
 	position: fixed;
 	top: 40%;
-    left: 50%;
-    display: block;
-    margin: 0 auto;
-    padding: 30px;
-    width: 600px;
+	left: 50%;
+	display: block;
+	margin: 0 auto;
+	padding: 30px;
+	width: 600px;
 	height: 500px;
-    background-color: rgb(255, 255, 255);
-    transform: translate(-200px,-100px);
-    border-radius: 10px;
-    
+	background-color: rgb(255, 255, 255);
+	transform: translate(-200px, -100px);
+	border-radius: 10px;
 }
-.addProductFrom .close{
-    position: fixed;
-    color: rgb(148, 36, 36);
-    margin-right:20px ;
-    top:10px;
-    right:0;
-    cursor: pointer;
-    transition: ease-in-out 0.2s;
+.addProductFrom .close {
+	position: fixed;
+	color: rgb(148, 36, 36);
+	margin-right: 20px;
+	top: 10px;
+	right: 0;
+	cursor: pointer;
+	transition: ease-in-out 0.2s;
 }
-.addProductFrom .close i:hover{
-    transform: scale(1.05);
-    transition: ease-in-out 0.2s;
-}
-
-.addProductFrom input{
-    display: block;
-    margin: 10px auto;
-    padding: 5px;
-    width: 70%;
-    border: 1px solid #bbbbbb;
-   
+.addProductFrom .close i:hover {
+	transform: scale(1.05);
+	transition: ease-in-out 0.2s;
 }
 
-.addProductFrom button{
-    display: block;
-    margin: 30px auto;
-    background-color: #4caf50 ;
-    padding: 10px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.addProductFrom input {
+	display: block;
+	margin: 10px auto;
+	padding: 5px;
+	width: 70%;
+	border: 1px solid #bbbbbb;
+}
 
+.addProductFrom button {
+	display: block;
+	margin: 30px auto;
+	background-color: #4caf50;
+	padding: 10px;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 @media (max-width: 1200px) {
-    .addProductFrom {
-        left: 40%;
-    }
+	.addProductFrom {
+		left: 40%;
+	}
+}
+@media (max-width: 768px) {
+	.addProductFrom {
+		max-width: 500px;
+		width: 100%;
+        transform: translate(-50%, -100px);
+		left: 50%;
+	}
 }

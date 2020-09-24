@@ -3,6 +3,7 @@ import NavBar from '../navBar/navBar';
 import axios from 'axios';
 import Header from '../header/header';
 import './inventory-style.css';
+import {withRouter} from 'react-router-dom';
 import IbServices from '../../services/Ib-tracker-services';
 import SingleIventory from '../single_Inventory/single_Inventory';
 import spinner from '../../assets/spinner.gif';
@@ -140,4 +141,4 @@ class inventory extends React.Component {
 		);
 	}
 }
-export default inventory;
+export default withRouter(inventory);

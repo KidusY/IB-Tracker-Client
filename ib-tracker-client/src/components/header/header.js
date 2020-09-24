@@ -1,7 +1,8 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'
 import './header-style.css';
 const Header = (props)=>{
-    const location = props.location.slice(1,props.location.length);
+       const location = props.location.pathname.slice(1,props.location.length);
     let arrow = ''
     if(location){
         arrow = <span>&gt;</span>
@@ -19,4 +20,4 @@ return(
     
 
 
-export default Header;
+export default withRouter(Header);

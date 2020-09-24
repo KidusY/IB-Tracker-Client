@@ -5,7 +5,8 @@
     margin: 100px auto;
     height: auto;
     width: 90%;
-    height: 100vh;
+    padding: 10px;
+    min-height: 100vh;
     background-color: rgb(245, 245, 245);
     
 }

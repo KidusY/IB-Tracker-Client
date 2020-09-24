@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../navBar/navBar';
+import { withRouter } from 'react-router-dom';
 import Product from '../product/product';
 import Header from '../header/header';
 import service from '../../services/Ib-tracker-services';
@@ -63,7 +64,6 @@ class products extends React.Component {
 				}
 			})
 			.then((res) => {
-			
 				return service.postLog({
 					actions: `Added New Product`,
 					quantity: 1,
@@ -74,8 +74,6 @@ class products extends React.Component {
 			})
 			.catch((err) => console.log(err.response));
 	};
-
-	
 
 	searchForProduct = (productName) => {
 		const searchedItem = this.state.productsInfo.filter((product) =>
@@ -101,6 +99,7 @@ class products extends React.Component {
 		return (
 			<div className="container">
 				<Header searchForProduct={this.searchForProduct} location={this.props.location.pathname} />
+				{console.log(this.props)}
 				<NavBar />
 				<div className="filler" />
 				<div className="main">
@@ -120,9 +119,8 @@ class products extends React.Component {
 						<i className="material-icons">add_circle_outline</i>
 					</button>
 					<div className="collection">
-					<h2> Products </h2>
+						<h2> Products </h2>
 						<div className="products">
-					
 							{this.state.searchedProduct.length === 0 ? (
 								<img className="loadingSpinner" src={spinner} alt="spinner" />
 							) : (
@@ -130,7 +128,6 @@ class products extends React.Component {
 									<Product
 										productInfo={productInfo}
 										key={i}
-										
 										inventoryFrom={this.state.inventoryFrom}
 										handleDeleteProduct={this.handleDeleteProduct}
 										index={i}
@@ -152,5 +149,19 @@ class products extends React.Component {
 		);
 	}
 }
-
-export default products;
+products.defaultProps = {
+	props: {
+		location: {
+			hash: '',
+			key: 'bk9gf3',
+			pathname: '/product',
+			search: '',
+			state: undefined
+		},
+		match: { path: '/product' },
+		props: {
+			location: { pathname: '/product' }
+		}
+	}
+};
+export default withRouter(products);

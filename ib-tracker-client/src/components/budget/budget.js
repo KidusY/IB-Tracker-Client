@@ -2,6 +2,7 @@ import React from 'react';
 import './budget-style.css';
 import axios from 'axios';
 import config from '../../config';
+import { withRouter } from 'react-router-dom';
 import tokenServices from '../../services/tokenServices';
 import NavBar from '../../components/navBar/navBar';
 import Header from '../../components/header/header';
@@ -208,7 +209,7 @@ class budget extends React.Component {
 							</div>
 							<div className="availableToSpend">	
 								<h2> Available To Spend </h2> <br/>
-								<h1><img  src="https://img.icons8.com/nolan/64/albanian-lek.png" width="40px" alt="availableToSpend" /> $ {this.state.availableToSpend} </h1>
+								<h1><img  src="https://img.icons8.com/nolan/64/albanian-lek.png" width="40px" alt="availableToSpend" /> $ {Number(this.state.availableToSpend).toFixed(2)} </h1>
 							 </div>
 						</div>
 						<div className="col-3">
@@ -259,4 +260,4 @@ class budget extends React.Component {
 	}
 }
 
-export default budget;
+export default withRouter(budget);

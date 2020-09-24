@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import config from '../../config';
+import {withRouter} from 'react-router-dom';
 import tokenServices from '../../services/tokenServices';
 import NavBar from '../navBar/navBar';
 import Log from '../log/log';
@@ -68,4 +69,4 @@ class logs extends React.Component {
 
 
 
-export default logs;
+export default withRouter(logs);

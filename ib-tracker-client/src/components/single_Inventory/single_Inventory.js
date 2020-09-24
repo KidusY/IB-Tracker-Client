@@ -117,4 +117,12 @@ class singleInventory extends React.Component {
 	}
 }
 
+singleInventory.defaultProps={
+	inventory:{
+		productid:1,
+		title:"title",
+		location:"location",
+		quantity:"quantity"
+	}
+}
 export default singleInventory;

@@ -85,4 +85,15 @@ class product extends React.Component {
 	}
 }
 
+product.defaultProps={
+productInfo:{
+	title:"",
+	type:"",
+	description:"",
+	price:""
+},
+
+}
+
+
 export default product;

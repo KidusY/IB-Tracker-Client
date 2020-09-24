@@ -38,7 +38,9 @@
 	background: #4658cc;
 }
 .landingPage .heroText {
-	margin-top: 70px;
+	display: block;
+	width: 80%;
+	margin: 70px auto;
 	color: #303f9f;
 }
 .card {
@@ -68,9 +70,9 @@
 .secondSection {
 	display: flex;
 	width: 100%;
-	min-height: 100vh;
+	min-height: 80vh;
 	height: auto;
-	background: url("../../assets//background\ 2.jpg");
+	background: #313b80;
     background-repeat: no-repeat;
    
 }
@@ -79,11 +81,11 @@
 	height: 200px;
 	padding: 30px;
 	margin-left: 10px;
-	transform: translateY(120px);
+	
 	color: white;
 }
 .secondSectionText h3 {
-	font-size: 30px;
+	font-size: 2em;
 	text-align: left !important;
 }
 .secondSectionText h5 {
@@ -97,11 +99,7 @@
 	font-weight: 500;
 	text-align: left !important;
 }
-.secondSectionImg {
-	width: 30%;
-	margin: 0 auto;
-	height: 300px;
-}
+
 .secondSectionImg img {
 	width: 100%;
 
@@ -132,22 +130,21 @@ footer {
         display: flex;
         flex-wrap:wrap;       
         width: 100%; 
-        min-height: 110vh;      
-        height: auto;
-        background: url("../../assets//background\ 2.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
+        min-height: 100vh;     
+		height: auto;
+		padding:10vw 1vw;
+       
+      
     }
     .secondSectionText {
         width: 100%;
         height: 200px;
-        padding: 0px;
-        margin-left: 10px;
-        transform: translateY(150px);
+        padding: 10px;
+        margin-left: 10px;        
         color: rgb(236, 236, 236);
     }
-    .secondSectionText h3 {
-        font-size: 20px;
+    .secondSectionText h3 {		
+		font-size: 1.7em;
         text-align: left !important;
 
     }
@@ -165,11 +162,12 @@ footer {
         text-align: left !important;
     }
     .secondSectionImg{
+		
         width: 100%;
     }
     .secondSectionImg img{
-        width: 70%;
-        max-width: 200px;
+        width: 80%;
+        max-width: 300px;
         max-height: auto;
     }
 }
@@ -212,11 +210,9 @@ footer {
 		margin: 0px auto;
 		justify-content: space-evenly;
 		width: 100%;
-		height: 80vh;
-		background: url("../../assets//background\ 2.jpg");
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center;
+		min-height: 60vh;
+		height: auto;
+	
 	}
 	.secondSectionText {
 		width: 50% !important;
@@ -240,15 +236,14 @@ footer {
 		text-align: center;
 	}
 	.secondSectionImg {
-		width: 30%;
+		width: 40%;
 		height: 100px;
-		border-radius: 100%;
-		background-color: #ffffff;
+		
 	}
 	.secondSectionImg img {
 		width: 80%;
 		display: block;
-		margin-top: 100px;
+		margin-top: 150px;
 	}
 }
 
@@ -261,18 +256,24 @@ footer {
 		width: 70%;
 		margin: 0 auto;
 		justify-content: center;
-    }
+	}
+	.secondSection {
+		
+		min-height: 70vh;
+		height: auto;
+	
+	}
    
     .secondSectionText {
         width: 70%;
         height: 200px;
         padding: 30px;
         margin-left: 10px;
-        transform: translateY(250px);
+        transform: translateY(12em);
         color: white;
     }
     .secondSectionText h3 {
-        font-size: 40px;
+        
         text-align: left !important;
     }
     .secondSectionText h5 {
@@ -286,7 +287,7 @@ footer {
         display: block;
         width: 50%;
         font-weight: 300;
-        font-size: 25px;
+        font-size: 1.2em;
         text-align: left !important;
     }
   

@@ -4,7 +4,7 @@ import heroPic from '../../assets/undraw_heavy_box_agqi (2).png';
 import productIcon from '../../assets/products.png';
 import inventoryIcon from '../../assets/inventory.png';
 import budgetIcon from '../../assets/budget.png';
-import budget from '../../assets/undraw_personal_finance_tqcd.png'
+import budget from '../../assets/undraw_personal_finance_tqcd.png';
 import './landingPage-style.css';
 
 const landingPage = (props) => {
@@ -27,64 +27,62 @@ const landingPage = (props) => {
 					<div className="heroText">
 						<h1> Success Starts With A Great App. </h1>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-							labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-							laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-							voluptate velit esse
+							This web app helps small businesses keep track of their inventory and their transactions.
+							The admin will be able to track what his/her employee is doing, the amount of product sold,
+							the amount of product discarded and the amount of product ordered from the main vendor. This
+							web app also allows the admin to view their budget and calculate how much they can save
+							based on their earnings.
 						</p>
 					</div>
 				</div>
 
-				
-				
 				<div className="landingPageInfo">
 					<div className="card purple">
 						<img src={productIcon} alt="product" />
 						<h3> Product </h3>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-							labore et dolore magna aliqua.
+							Take control of your Product, you can view your products and add new products. You can also
+							add descriptions so that your employees are well informed.
 						</p>
 					</div>
 					<div className="card scroll " data-direction="vertical" data-rate="-3">
 						<img src={inventoryIcon} alt="product" />
 						<h3>Inventory</h3>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-							labore et dolore magna aliqua.
+							Managing inventory can be hard, don't let it stop you from owning your own bushiness. At
+							IB-tracker you can manage your inventory with just one click.
 						</p>
 					</div>
 					<div className="card scroll purple" data-direction="vertical" data-rate="-2.5">
 						<img src={budgetIcon} alt="product" />
 						<h3>Budget</h3>
 						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-							labore et dolore magna aliqua.
+							Why hire an assistant manger when you can delegate management jobs to Ib-tracker. Ib-tracker
+							helps you manage your inventory but also your budget
 						</p>
 					</div>
 				</div>
-			
-			<section className="secondSection">
-			<div className="secondSectionText"> 
-				<h3> Ib tracker is an inventory management platform that solves problems for small businesses. </h3>
-				<h5> Not only it manages your inventory -- it manages your budget</h5>
-					<ul>
-						<li>Control Your inventory</li>
-						<li>Get alerted before you are low</li>
-						<li>Manage your employees activity</li>
-					</ul>
-				</div>
 
-				<div className="secondSectionImg">
-					<img src={budget} alt="budget"/>
-				</div>
-			</section>
+				<section className="secondSection">
+					<div className="secondSectionText">
+						<h3>
+							{' '}
+							Ib tracker is an inventory management platform that solves problems for small businesses.{' '}
+						</h3>
+						<h5> Not only it manages your inventory -- it manages your budget</h5>
+						<ul>
+							<li>Control Your inventory</li>
+							<li>Get alerted before you are low</li>
+							<li>Manage your employees activity</li>
+						</ul>
+					</div>
 
+					<div className="secondSectionImg">
+						<img src={budget} alt="budget" />
+					</div>
+				</section>
 
-			<footer>
-			© All rights reserved to IB tracker corp.
-			 </footer>
-			
+				<footer>© All rights reserved to IB tracker corp.</footer>
 			</div>
 		</div>
 	);
