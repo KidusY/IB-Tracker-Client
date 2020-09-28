@@ -39,7 +39,8 @@
 }
 .landingPage .heroText {
 	display: block;
-	width: 80%;
+	padding: 10px 15px;
+	width: 60%;
 	margin: 70px auto;
 	color: #303f9f;
 }
@@ -102,11 +103,46 @@
 
 .secondSectionImg img {
 	width: 100%;
-
 	display: block;
 	border-radius: 100%;
 	margin: 0 auto;
 	margin-top: 150px;
+}
+
+.thirdSection{
+	width:60%;
+	margin:50px auto;
+}
+.thirdSection .how_to_use{
+	display: flex;
+	flex-wrap: wrap;
+}
+.thirdSection .how_to_use div{
+width:50%;
+}
+.thirdSection .where_to_start{
+	display: flex;
+	flex-wrap: wrap;
+
+}
+.thirdSection .where_to_start div{
+	width: 50%;
+
+}
+.thirdSection img{
+	width:50%;
+}
+.thirdSection h3{
+	font-size: 2em;
+	padding:10px;
+	margin-top: 50px;
+}
+.thirdSection #btn-login{
+	width: 200px ;
+	height: 60px;
+	display: block;
+	margin: 15px auto;
+	font-size: 1.2em;
 }
 footer {
 	margin-top: 100px;
@@ -126,6 +162,10 @@ footer {
 
 /* Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
+	.landingPage .heroText {		
+		width: 90%;
+		
+	}
     .secondSection {
         display: flex;
         flex-wrap:wrap;       
@@ -169,7 +209,21 @@ footer {
         width: 80%;
         max-width: 300px;
         max-height: auto;
-    }
+	}
+	.thirdSection{
+		width:90%;
+		margin:50px auto;
+	}
+	.thirdSection img{
+		width:100%;
+	}
+	.thirdSection .where_to_start div{
+		width: 100%;
+			
+	}
+	.thirdSection .how_to_use div{
+		width:100%;
+		}
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {

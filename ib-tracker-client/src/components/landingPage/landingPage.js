@@ -4,6 +4,8 @@ import heroPic from '../../assets/undraw_heavy_box_agqi (2).png';
 import productIcon from '../../assets/products.png';
 import inventoryIcon from '../../assets/inventory.png';
 import budgetIcon from '../../assets/budget.png';
+import where_to_start from '../../assets/undraw_start_building_vqhd.png';
+import How_to_use from '../../assets/undraw_Terms_re_6ak4.png';
 import budget from '../../assets/undraw_personal_finance_tqcd.png';
 import './landingPage-style.css';
 
@@ -80,6 +82,42 @@ const landingPage = (props) => {
 					<div className="secondSectionImg">
 						<img src={budget} alt="budget" />
 					</div>
+				</section>
+
+				<section className="thirdSection">
+					<div className="how_to_use">
+						<img src={How_to_use} alt="how_to_use" />
+						<div>
+							<h3> How to use the app... </h3>
+							<p>
+								After logging in, get familiar with the app, go through all the tabs. On the left side is
+								where you would find your options or on the dashboard which is the home screen. The
+								products section should give you an idea how your product might display and all the
+								functionalities that comes out of the box. You will be able to add your products to your
+								current inventory. When adding or doing important actives the app logs all the
+								transactions and you will able to view all the info in the logs page. All the logged
+								information is changed into meaningful data in the budgets section where you will be
+								able to see all your loss,income,profits and more.
+							</p>
+						</div>
+					</div>
+					<div className="where_to_start">
+					
+					<div>
+					<h3> Where to start... </h3>
+					<p>
+						The best thing about Ib-Tracker is that it is customizable for your needs. Here at Ib-Tracker,
+						we believe that all business are not created equal and some business require more logic that
+						others. We don't provide a cookie cutter app, we tailor the app for you. click below to visit
+						what your future app will do for you.
+					</p>
+					 </div>
+					 <img src={where_to_start} alt="where to start "/>
+					 </div>
+					
+					<button id="btn-login" onClick={() => props.history.push('/login')}>
+						Start Here
+					</button>
 				</section>
 
 				<footer>© All rights reserved to IB tracker corp.</footer>
