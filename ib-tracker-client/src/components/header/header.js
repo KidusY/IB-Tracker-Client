@@ -1,23 +1,23 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import './header-style.css';
-const Header = (props)=>{
-       const location = props.location.pathname.slice(1,props.location.length);
+const Header = (props) => {
+    const location = props.location.pathname.slice(1, props.location.length);
     let arrow = ''
-    if(location){
+    if (location) {
         arrow = <span>&gt;</span>
     }
-return(
-    <header className="header">
-    <div className="titleNav">    
-     <span id="dashboardFont">Dashboard</span> {arrow} <span id="currentLocation"> {location}</span>
-     </div>
+    return (
+        <header className="header">
+            <div className="titleNav">
+                <span style={{ cursor: 'pointer' }} id="dashboardFont" onClick={() => props.history.push('/home')}>Dashboard</span> {arrow} <span id="currentLocation"> {location}</span>
+            </div>
 
-    
-     </header>
-)
+
+        </header>
+    )
 }
-    
+
 
 
 export default withRouter(Header);
