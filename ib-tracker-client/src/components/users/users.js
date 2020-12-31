@@ -23,7 +23,10 @@ class users extends React.Component {
 		};
 	}
 	componentDidMount() {
-		IBTrackerServices.getUsers().then((users) => this.setState({ users: users.data }));
+		IBTrackerServices.getUsers()
+		.then((users) => {		
+			this.setState({ users: users.data })})
+		.catch(err=>this.setState({error:err.data}));
 	}
 
 	showEditUserForm = (userInfo) => {
@@ -87,6 +90,10 @@ class users extends React.Component {
 	};
 	render() {
 		const date = new Date();
+		let loading = <img className="loadingSpinner" src={spinner} alt="spinner" />; 
+		if(!!this.state.error){
+			loading = <h1> {this.state.error}</h1>
+		}
 
 		return (
 			<div className="container">
@@ -96,7 +103,7 @@ class users extends React.Component {
 				<div className="main">
 					<div className="allUsers">
 						{this.state.users.length === 0 ? (
-							<img className="loadingSpinner" src={spinner} alt="spinner" />
+							loading
 						) : (
 							this.state.users.map((userInfo, i) => (
 								<User

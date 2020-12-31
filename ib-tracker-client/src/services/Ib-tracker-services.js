@@ -16,7 +16,6 @@ const services = {
 				Authorization: `bearer ${tokenServices.getAuthToken(config.TOKEN_KEY)}`
 			}
 		});
-
 		return users;
 	},
 	async postLog(logInfo) {

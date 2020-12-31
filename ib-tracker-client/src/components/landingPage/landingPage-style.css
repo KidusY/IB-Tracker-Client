@@ -67,6 +67,7 @@
 
 .card img {
 	width: 30%;
+	max-height: 100px;
 }
 .secondSection {
 	display: flex;
@@ -216,6 +217,7 @@ footer {
 	}
 	.thirdSection img{
 		width:100%;
+		max-height: 300px;
 	}
 	.thirdSection .where_to_start div{
 		width: 100%;
