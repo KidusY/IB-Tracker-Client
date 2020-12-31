@@ -132,6 +132,7 @@ width:50%;
 }
 .thirdSection img{
 	width:50%;
+	max-height: 360px;
 }
 .thirdSection h3{
 	font-size: 2em;
